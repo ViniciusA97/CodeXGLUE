@@ -39,7 +39,7 @@ class Seq2Seq(nn.Module):
     def _tie_or_clone_weights(self, first_module, second_module):
         """ Tie or clone module weights depending of weither we are using TorchScript or not
         """
-        if self.config.torchscript:
+        if getattr(self.config, 'torchscript', False):
             first_module.weight = nn.Parameter(second_module.weight.clone())
         else:
             first_module.weight = second_module.weight
