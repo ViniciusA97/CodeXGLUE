@@ -28,8 +28,8 @@ https://colab.research.google.com
 # Instalar dependências
 !pip install -q transformers torch scikit-learn
 
-# Clonar o repositório corrigido (substitua YOUR_USERNAME pelo seu usuário do GitHub)
-!git clone https://github.com/YOUR_USERNAME/CodeXGLUE.git
+# Clonar o repositório corrigido
+!git clone https://github.com/ViniciusA97/CodeXGLUE.git
 %cd CodeXGLUE/Code-Code/code-refinement
 
 print("✅ Setup completo!")

@@ -91,6 +91,6 @@ Script para teste rápido do treinamento (10k steps ao invés de 100k).
 
 ## 🔗 Links Úteis
 
-- **Seu Fork:** https://github.com/YOUR_USERNAME/CodeXGLUE
+- **Seu Fork:** https://github.com/ViniciusA97/CodeXGLUE
 - **Original:** https://github.com/microsoft/CodeXGLUE
 - **Google Colab:** https://colab.research.google.com
