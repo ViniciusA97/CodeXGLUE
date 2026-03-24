@@ -25,14 +25,22 @@ https://colab.research.google.com
 ## 📦 Célula 1: Instalação e Clone
 
 ```python
+# Limpar instalações anteriores (se houver)
+!rm -rf CodeXGLUE
+
 # Instalar dependências
 !pip install -q transformers torch scikit-learn
 
-# Clonar o repositório corrigido
-!git clone https://github.com/ViniciusA97/CodeXGLUE.git
+# Clonar o repositório corrigido (força download limpo)
+!git clone --depth 1 https://github.com/ViniciusA97/CodeXGLUE.git
 %cd CodeXGLUE/Code-Code/code-refinement
 
-print("✅ Setup completo!")
+# Verificar se as correções estão presentes
+print("\n🔍 Verificando correções:")
+!grep -n "from torch.optim import AdamW" code/run.py
+!grep -n "getattr(self.config" code/model.py
+
+print("\n✅ Setup completo!")
 ```
 
 ---
