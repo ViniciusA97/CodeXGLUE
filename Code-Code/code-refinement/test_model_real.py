@@ -80,10 +80,12 @@ def test_with_real_code(examples_dir='examples', model_path='code/output_small/c
                                    if not line.strip().startswith('//')])
         
         print(f"\n🐛 BUGGY CODE:")
-        print(f"   {buggy_code[:80]}{'...' if len(buggy_code) > 80 else ''}")
+        for line in buggy_code.split('\n'):
+            print(f"   {line}")
         
         print(f"\n✅ EXPECTED FIX:")
-        print(f"   {expected_clean[:80]}{'...' if len(expected_clean) > 80 else ''}")
+        for line in expected_clean.split('\n'):
+            print(f"   {line}")
         
         try:
             # Step 1: Preprocess (tokenize)
@@ -92,7 +94,7 @@ def test_with_real_code(examples_dir='examples', model_path='code/output_small/c
             mappings = preprocessor.get_mappings()
             
             print(f"\n🔄 TOKENIZED:")
-            print(f"   {tokenized_buggy[:80]}{'...' if len(tokenized_buggy) > 80 else ''}")
+            print(f"   {tokenized_buggy}")
             
             # Step 2: Run model
             with tempfile.TemporaryDirectory() as tmpdir:
@@ -142,7 +144,8 @@ def test_with_real_code(examples_dir='examples', model_path='code/output_small/c
                     fixed_code = detokenizer.detokenize(tokenized_output)
                     
                     print(f"\n🤖 MODEL OUTPUT (detokenized):")
-                    print(f"   {fixed_code[:80]}{'...' if len(fixed_code) > 80 else ''}")
+                    for line in fixed_code.split('\n'):
+                        print(f"   {line}")
                     
                     # Compare (normalize whitespace)
                     fixed_normalized = ' '.join(fixed_code.split())
@@ -152,15 +155,16 @@ def test_with_real_code(examples_dir='examples', model_path='code/output_small/c
                         print("\n✅ CORRECT! Model fixed the bug correctly.")
                         correct += 1
                     else:
-                        print("\n⚠️  DIFFERENT from expected")
-                        print(f"   Expected length: {len(expected_normalized)}")
-                        print(f"   Generated length: {len(fixed_normalized)}")
+                        print("\n❌ DIFFERENT from expected")
                         
-                        # Show first difference
-                        for i, (e, g) in enumerate(zip(expected_normalized, fixed_normalized)):
-                            if e != g:
-                                print(f"   First diff at position {i}: expected '{e}', got '{g}'")
-                                break
+                        # Show side-by-side comparison
+                        print("\n📊 COMPARISON:")
+                        print("   Expected:")
+                        for line in expected_clean.split('\n'):
+                            print(f"     {line}")
+                        print("\n   Generated:")
+                        for line in fixed_code.split('\n'):
+                            print(f"     {line}")
                 else:
                     print(f"\n❌ Output file not found")
                     errors += 1
