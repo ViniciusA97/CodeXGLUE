@@ -1,1 +1,1 @@
-public int process(int n) { return n * n; }
+public boolean check(int x, int y) { return x > y || x < y; }

@@ -1,1 +1,1 @@
-public double calculateAverage(int sum, int count) { return sum / count; }
+public double divide(int a, int b) { return (double) a / b; }

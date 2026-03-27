@@ -1,1 +1,1 @@
-public int getFirstElement(int[] array) { return array[1]; }
+public int getValue(int[] array) { return array[-1]; }
