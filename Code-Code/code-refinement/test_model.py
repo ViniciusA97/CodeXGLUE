@@ -10,7 +10,25 @@ import os
 import sys
 import argparse
 import subprocess
+import csv
 from pathlib import Path
+
+def load_bug_descriptions(examples_dir='examples'):
+    """Load bug descriptions from CSV file."""
+    csv_path = os.path.join(examples_dir, 'bugs_description.csv')
+    descriptions = {}
+    
+    if os.path.exists(csv_path):
+        with open(csv_path, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                descriptions[row['example']] = {
+                    'tipo': row['tipo'],
+                    'descricao': row['descricao']
+                }
+    
+    return descriptions
+
 
 def normalize_java_code(code):
     """
@@ -116,13 +134,16 @@ def run_inference(model_path, buggy_file, fixed_file, output_dir='./test_output'
         print(f"Error: {e.stderr}")
         return False
 
-def display_results(example_names, buggy_codes, fixed_codes, output_file):
+def display_results(example_names, buggy_codes, fixed_codes, output_file, examples_dir='examples'):
     """
     Exibe os resultados da inferência de forma formatada.
     """
     if not os.path.exists(output_file):
         print(f"Erro: Arquivo de output nao encontrado: {output_file}")
         return
+    
+    # Load bug descriptions
+    bug_descriptions = load_bug_descriptions(examples_dir)
     
     with open(output_file, 'r') as f:
         predictions = f.readlines()
@@ -140,6 +161,13 @@ def display_results(example_names, buggy_codes, fixed_codes, output_file):
         
         print(f"\n{'─'*80}")
         print(f"EXEMPLO {i}: {name}")
+        
+        # Show bug description if available
+        if name in bug_descriptions:
+            bug_info = bug_descriptions[name]
+            print(f"Tipo: {bug_info['tipo']}")
+            print(f"Bug: {bug_info['descricao']}")
+        
         print('─'*80)
         
         print("\nCODIGO COM BUG:")
@@ -207,7 +235,7 @@ def main():
     
     # Exibir resultados
     output_file = os.path.join(args.output_dir, 'test_0.output')
-    display_results(example_names, buggy_codes, fixed_codes, output_file)
+    display_results(example_names, buggy_codes, fixed_codes, output_file, args.examples_dir)
     
     # Limpar arquivos temporários
     try:

@@ -1,0 +1,15 @@
+example,tipo,descricao
+example1,Sintatico,Espaco extra entre operadores (a + + b)
+example2,Sintatico,Indice negativo em array (array[-1])
+example3,Sintatico,Decremento em vez de incremento no loop (i--)
+example4,Sintatico,Condicao de loop incorreta (i <= array.length causa ArrayIndexOutOfBounds)
+example5,Logico,Comparacao impossivel (length() < 0)
+example6,Logico,Operador logico errado (|| em vez de &&)
+example7,Sintatico,Divisao inteira em vez de decimal (falta cast para double)
+example8,Sintatico,Operador invalido (**) em Java
+example9,Sintatico,Atribuicao (=) em vez de comparacao (==)
+example10,Logico,Condicao impossivel (x > y && x < y sempre false)
+example11,Sintatico,Atribuicao (=) em vez de comparacao (==) na condicao
+example12,Sintatico,Off-by-one error (length() sem -1 causa StringIndexOutOfBounds)
+example13,Contextual,Operador errado baseado no nome da funcao (subtract usa +)
+example14,Contextual,Indice errado baseado no nome da funcao (getLastElement retorna [0])

@@ -19,9 +19,27 @@ import sys
 import glob
 import subprocess
 import tempfile
+import csv
 from pathlib import Path
 from preprocess_java import JavaPreprocessor
 from detokenize_java import JavaDetokenizer
+
+
+def load_bug_descriptions(examples_dir='examples'):
+    """Load bug descriptions from CSV file."""
+    csv_path = os.path.join(examples_dir, 'bugs_description.csv')
+    descriptions = {}
+    
+    if os.path.exists(csv_path):
+        with open(csv_path, 'r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                descriptions[row['example']] = {
+                    'tipo': row['tipo'],
+                    'descricao': row['descricao']
+                }
+    
+    return descriptions
 
 
 def test_with_real_code(examples_dir='examples', model_path='code/output_small/checkpoint-best-bleu/pytorch_model.bin'):
@@ -34,14 +52,17 @@ def test_with_real_code(examples_dir='examples', model_path='code/output_small/c
     """
     
     if not os.path.exists(model_path):
-        print(f"❌ Model not found: {model_path}")
+        print(f"Model not found: {model_path}")
         return
+    
+    # Load bug descriptions
+    bug_descriptions = load_bug_descriptions(examples_dir)
     
     # Find all buggy examples
     buggy_files = sorted(glob.glob(f'{examples_dir}/example*_buggy.java'))
     
     if not buggy_files:
-        print(f"❌ No examples found in {examples_dir}")
+        print(f"No examples found in {examples_dir}")
         return
     
     print("="*80)
@@ -65,6 +86,13 @@ def test_with_real_code(examples_dir='examples', model_path='code/output_small/c
         
         print("─"*80)
         print(f"EXEMPLO {total}: {example_name}")
+        
+        # Show bug description if available
+        if example_name in bug_descriptions:
+            bug_info = bug_descriptions[example_name]
+            print(f"Tipo: {bug_info['tipo']}")
+            print(f"Bug: {bug_info['descricao']}")
+        
         print("─"*80)
         
         # Read files
