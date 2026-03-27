@@ -1,4 +1,1 @@
-// Fixed: Removed debug print statement
-public User getCurrentUser() {
-    return this.userService.getCurrentUser();
-}
+public void printNumbers(int n) { for (int i = 0; i < n; i++) { System.out.println(i); } }

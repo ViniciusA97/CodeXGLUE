@@ -1,4 +1,1 @@
-// Fixed: Correct variable in calculation
-public double calculateAverage(int sum, int count) {
-    return sum / count;
-}
+public int compute(int a, int b) { return a * b; }

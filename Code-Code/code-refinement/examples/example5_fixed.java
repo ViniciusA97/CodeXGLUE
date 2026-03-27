@@ -1,4 +1,1 @@
-// Fixed: Correct comparison operator
-public boolean isEmpty(String str) {
-    return str.length() == 0;
-}
+public boolean isEmpty(String str) { return str.length() == 0; }

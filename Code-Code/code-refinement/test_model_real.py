@@ -45,11 +45,9 @@ def test_with_real_code(examples_dir='examples', model_path='code/output_small/c
         return
     
     print("="*80)
-    print("🧪 TESTING MODEL WITH REAL JAVA CODE")
+    print("RESULTADOS DO TESTE")
     print("="*80)
-    print(f"\nExamples directory: {examples_dir}")
-    print(f"Found {len(buggy_files)} examples")
-    print(f"Model: {model_path}\n")
+    print()
     
     correct = 0
     total = 0
@@ -66,7 +64,7 @@ def test_with_real_code(examples_dir='examples', model_path='code/output_small/c
         total += 1
         
         print("─"*80)
-        print(f"EXAMPLE {total}: {example_name}")
+        print(f"EXEMPLO {total}: {example_name}")
         print("─"*80)
         
         # Read files
@@ -79,11 +77,11 @@ def test_with_real_code(examples_dir='examples', model_path='code/output_small/c
         expected_clean = '\n'.join([line for line in expected_code.split('\n') 
                                    if not line.strip().startswith('//')])
         
-        print(f"\n🐛 BUGGY CODE:")
+        print(f"\nCODIGO COM BUG:")
         for line in buggy_code.split('\n'):
             print(f"   {line}")
         
-        print(f"\n✅ EXPECTED FIX:")
+        print(f"\nCORRECAO ESPERADA:")
         for line in expected_clean.split('\n'):
             print(f"   {line}")
         
@@ -93,8 +91,6 @@ def test_with_real_code(examples_dir='examples', model_path='code/output_small/c
             tokenized_buggy = preprocessor.preprocess(buggy_code)
             mappings = preprocessor.get_mappings()
             
-            print(f"\n🔄 TOKENIZED:")
-            print(f"   {tokenized_buggy}")
             
             # Step 2: Run model
             with tempfile.TemporaryDirectory() as tmpdir:
@@ -143,7 +139,7 @@ def test_with_real_code(examples_dir='examples', model_path='code/output_small/c
                     detokenizer = JavaDetokenizer(mappings)
                     fixed_code = detokenizer.detokenize(tokenized_output)
                     
-                    print(f"\n🤖 MODEL OUTPUT (detokenized):")
+                    print(f"\nCORRECAO DO MODELO:")
                     for line in fixed_code.split('\n'):
                         print(f"   {line}")
                     
@@ -152,47 +148,33 @@ def test_with_real_code(examples_dir='examples', model_path='code/output_small/c
                     expected_normalized = ' '.join(expected_clean.split())
                     
                     if fixed_normalized == expected_normalized:
-                        print("\n✅ CORRECT! Model fixed the bug correctly.")
+                        print("\nCorreto")
                         correct += 1
                     else:
-                        print("\n❌ DIFFERENT from expected")
-                        
-                        # Show side-by-side comparison
-                        print("\n📊 COMPARISON:")
-                        print("   Expected:")
-                        for line in expected_clean.split('\n'):
-                            print(f"     {line}")
-                        print("\n   Generated:")
-                        for line in fixed_code.split('\n'):
-                            print(f"     {line}")
+                        print("\nDiferente da esperada")
                 else:
-                    print(f"\n❌ Output file not found")
+                    print(f"\nErro: arquivo de saida nao encontrado")
                     errors += 1
                     
         except Exception as e:
-            print(f"\n❌ Error: {e}")
+            print(f"\nErro: {e}")
             errors += 1
         
         print()
     
     # Final statistics
     print("="*80)
-    print("📈 FINAL STATISTICS")
+    print("ESTATISTICAS FINAIS")
     print("="*80)
-    print(f"  Total examples: {total}")
-    print(f"  Correct: {correct} ({100*correct/total if total > 0 else 0:.1f}%)")
-    print(f"  Incorrect: {total - correct - errors} ({100*(total-correct-errors)/total if total > 0 else 0:.1f}%)")
-    print(f"  Errors: {errors}")
+    print(f"  Total de exemplos: {total}")
+    print(f"  Acertos exatos: {correct} ({100*correct/total if total > 0 else 0:.1f}%)")
+    print(f"  Diferencas: {total - correct - errors} ({100*(total-correct-errors)/total if total > 0 else 0:.1f}%)")
+    if errors > 0:
+        print(f"  Erros: {errors}")
     print("="*80)
-    
-    if correct == total:
-        print("\n🎉 Perfect score! Model works correctly with real Java code!")
-    elif correct > total * 0.7:
-        print("\n✅ Good performance! Model works well with real Java code.")
-    elif correct > 0:
-        print("\n⚠️  Partial success. Model works but needs improvement.")
-    else:
-        print("\n❌ Model is not working correctly. Check model and examples.")
+    print()
+    print("Teste concluido!")
+    print()
 
 
 def main():

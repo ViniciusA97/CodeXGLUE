@@ -1,4 +1,1 @@
-// Bug: Incorrect increment operator
-public int getNextValue(int current) {
-    return current--;
-}
+public int process(int n) { return n * n * n; }

@@ -1,5 +1,1 @@
-// Fixed: Added null check
-public int getNameLength(User user) {
-    if (user == null) return 0;
-    return user.getName().length();
-}
+public double calculateAverage(int sum, int count) { return sum / count; }
