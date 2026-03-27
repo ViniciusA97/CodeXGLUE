@@ -1,10 +1,10 @@
-public String reverseString(String input) {
-    if (input == null) {
-        return null;
+public int sumArray(int[] numbers) {
+    if (numbers == null) {
+        return 0;
     }
-    StringBuilder result = new StringBuilder();
-    for (int i = input.length() - 1; i >= 0; i--) {
-        result.append(input.charAt(i));
+    int sum = 0;
+    for (int i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
     }
-    return result.toString();
+    return sum;
 }

@@ -10,6 +10,6 @@ example8,Sintatico,Operador invalido (**) em Java
 example9,Sintatico,Atribuicao (=) em vez de comparacao (==)
 example10,Logico,Condicao impossivel (x > y && x < y sempre false)
 example11,Sintatico,Atribuicao (=) em vez de comparacao (==) na condicao
-example12,Sintatico,Off-by-one error (length() sem -1 causa StringIndexOutOfBounds)
+example12,Sintatico,Atribuicao em vez de acumulacao (sum = numbers[i] em vez de sum += numbers[i])
 example13,Contextual,Operador errado baseado no nome da funcao (subtract usa +)
 example14,Contextual,Indice errado baseado no nome da funcao (getLastElement retorna [0])
