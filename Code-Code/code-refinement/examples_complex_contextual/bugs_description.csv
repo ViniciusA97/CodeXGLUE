@@ -1,0 +1,21 @@
+example,tipo,descricao
+example1,Contextual,sumPositive soma negativos (< 0 em vez de > 0)
+example2,Contextual,sumNegative soma positivos (> 0 em vez de < 0)
+example3,Contextual,countEven conta impares (!= 0 em vez de == 0)
+example4,Contextual,countOdd conta pares (== 0 em vez de != 0)
+example5,Contextual,hasEven verifica impares (!= 0 em vez de == 0)
+example6,Contextual,hasOdd verifica pares (== 0 em vez de != 0)
+example7,Contextual,findMaximum usa < em vez de >
+example8,Contextual,findMinimum usa > em vez de <
+example9,Contextual,allNegative retorna true quando encontra positivo
+example10,Contextual,allPositive retorna true quando encontra negativo
+example11,Contextual,productPositive multiplica negativos (< 0)
+example12,Contextual,productNegative multiplica positivos (> 0)
+example13,Contextual,anyGreaterThan verifica <= em vez de >
+example14,Contextual,anyLessThan verifica >= em vez de <
+example15,Contextual,getFirstPositive retorna negativo (< 0)
+example16,Contextual,getFirstNegative retorna positivo (> 0)
+example17,Contextual,isIncreasing retorna true quando nao eh crescente
+example18,Contextual,isDecreasing retorna true quando nao eh decrescente
+example19,Contextual,averagePositive calcula media de negativos
+example20,Contextual,averageNegative calcula media de positivos
