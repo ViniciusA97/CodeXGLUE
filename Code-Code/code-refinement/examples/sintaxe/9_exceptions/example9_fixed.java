@@ -1,0 +1,1 @@
+public void rethrow() throws IOException { try { throw new IOException(); } catch (IOException e) { throw e; } }

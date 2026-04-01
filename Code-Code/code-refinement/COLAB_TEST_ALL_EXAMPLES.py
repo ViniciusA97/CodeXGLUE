@@ -8,12 +8,25 @@ model_path = 'code/output_large/checkpoint-best-bleu/pytorch_model.bin'
 if not os.path.exists(model_path):
     print("Modelo nao encontrado. Execute a celula de download do modelo primeiro.")
 else:
-    example_folders = [
-        'examples_simple_syntax',
-        'examples_simple_contextual',
-        'examples_complex_syntax',
-        'examples_complex_contextual'
+    # Pastas de sintaxe (9 categorias)
+    syntax_folders = [
+        'examples/sintaxe/1_function_syntax',
+        'examples/sintaxe/2_conditionals',
+        'examples/sintaxe/3_variables',
+        'examples/sintaxe/4_loops',
+        'examples/sintaxe/5_arrays',
+        'examples/sintaxe/6_operators',
+        'examples/sintaxe/7_strings',
+        'examples/sintaxe/8_primitives',
+        'examples/sintaxe/9_exceptions'
     ]
+    
+    # Pastas contextuais
+    contextual_folders = [
+        'examples/contextual/simple'
+    ]
+    
+    example_folders = syntax_folders + contextual_folders
     
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     results_dir = f'test_results_{timestamp}'
@@ -27,18 +40,19 @@ else:
             continue
         
         example_count = len([f for f in os.listdir(folder) if f.endswith('_buggy.java')])
-        print(f"\n[{folder}] {example_count} exemplos")
+        folder_name = folder.replace('examples/', '').replace('/', '_')
+        print(f"\n[{folder_name}] {example_count} exemplos")
         
-        output_file_real = f'{results_dir}/{folder}_test_real.txt'
-        output_file_model = f'{results_dir}/{folder}_test_model.txt'
+        output_file_real = f'{results_dir}/{folder_name}_test_real.txt'
+        output_file_model = f'{results_dir}/{folder_name}_test_model.txt'
         
         # test_model_real.py
         print(f"  Executando test_model_real.py...")
         try:
             result = subprocess.run(
                 ['python3', 'test_model_real.py', 
-                 '--model_path', 'code/output_large/checkpoint-best-bleu/pytorch_model.bin',
-                 '--examples_dir', folder],
+                 '--model', 'code/output_large/checkpoint-best-bleu/pytorch_model.bin',
+                 '--examples-dir', folder],
                 capture_output=True,
                 text=True,
                 timeout=600
@@ -46,7 +60,7 @@ else:
             
             with open(output_file_real, 'w', encoding='utf-8') as f:
                 f.write(f"TESTE COM TOKENIZACAO/DETOKENIZACAO\n")
-                f.write(f"Pasta: {folder}\n")
+                f.write(f"Pasta: {folder_name}\n")
                 f.write(f"Data: {timestamp}\n")
                 f.write(f"{'='*80}\n\n")
                 f.write(result.stdout)
@@ -78,7 +92,7 @@ else:
             
             with open(output_file_model, 'w', encoding='utf-8') as f:
                 f.write(f"TESTE SEM TOKENIZACAO/DETOKENIZACAO\n")
-                f.write(f"Pasta: {folder}\n")
+                f.write(f"Pasta: {folder_name}\n")
                 f.write(f"Data: {timestamp}\n")
                 f.write(f"{'='*80}\n\n")
                 f.write(result.stdout)

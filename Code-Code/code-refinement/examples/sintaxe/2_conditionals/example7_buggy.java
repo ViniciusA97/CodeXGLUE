@@ -1,0 +1,1 @@
+public String grade(int score) { switch (score) { case 90 return "A"; case 80 return "B"; default return "C"; } }

@@ -1,0 +1,1 @@
+public void test() { int[] arr = new int[5]; }

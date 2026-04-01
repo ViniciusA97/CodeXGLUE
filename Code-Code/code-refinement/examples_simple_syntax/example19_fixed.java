@@ -1,1 +1,0 @@
-public int double(int n) { return n * 2; }

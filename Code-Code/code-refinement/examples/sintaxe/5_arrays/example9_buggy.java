@@ -1,0 +1,1 @@
+public int[] init() { return {1, 2, 3}; }

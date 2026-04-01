@@ -1,0 +1,1 @@
+public void update() { int MAX = 100; MAX = 200; }

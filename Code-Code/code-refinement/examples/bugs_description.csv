@@ -1,15 +1,91 @@
-example,tipo,descricao
-example1,Sintatico,Espaco extra entre operadores (a + + b)
-example2,Sintatico,Indice negativo em array (array[-1])
-example3,Sintatico,Decremento em vez de incremento no loop (i--)
-example4,Sintatico,Condicao de loop incorreta (i <= array.length causa ArrayIndexOutOfBounds)
-example5,Logico,Comparacao impossivel (length() < 0)
-example6,Logico,Operador logico errado (|| em vez de &&)
-example7,Sintatico,Divisao inteira em vez de decimal (falta cast para double)
-example8,Sintatico,Operador invalido (**) em Java
-example9,Sintatico,Atribuicao (=) em vez de comparacao (==)
-example10,Logico,Condicao impossivel (x > y && x < y sempre false)
-example11,Sintatico,Atribuicao (=) em vez de comparacao (==) na condicao
-example12,Sintatico,Atribuicao em vez de acumulacao (sum = numbers[i] em vez de sum += numbers[i])
-example13,Contextual,Operador errado baseado no nome da funcao (subtract usa +)
-example14,Contextual,Indice errado baseado no nome da funcao (getLastElement retorna [0])
+categoria,exemplo,tipo,descricao
+1_function_syntax,example1,Sintatico,Falta tipo de retorno no metodo
+1_function_syntax,example2,Sintatico,Colchetes em vez de parenteses nos parametros
+1_function_syntax,example3,Sintatico,Falta virgula entre parametros
+1_function_syntax,example4,Sintatico,Ordem incorreta de modificadores (final static)
+1_function_syntax,example5,Sintatico,Falta declaracao throws para excecao
+1_function_syntax,example6,Sintatico,Falta > no tipo generico List<String
+1_function_syntax,example7,Sintatico,Metodo sem nome
+1_function_syntax,example8,Sintatico,Construtor com tipo de retorno void
+1_function_syntax,example9,Sintatico,Tipo de retorno incompativel (String retorna int)
+1_function_syntax,example10,Sintatico,Varargs deve ser ultimo parametro
+2_conditionals,example1,Sintatico,If sem parenteses na condicao
+2_conditionals,example2,Sintatico,Else if escrito como elseif
+2_conditionals,example3,Sintatico,Falta chaves em blocos if/else
+2_conditionals,example4,Sintatico,Atribuicao (=) em vez de comparacao (==) em if
+2_conditionals,example5,Sintatico,Operador bit-a-bit (&) em vez de logico (&&)
+2_conditionals,example6,Sintatico,Condicao vazia if()
+2_conditionals,example7,Sintatico,Switch case sem dois pontos
+2_conditionals,example8,Sintatico,Ternario sem dois pontos (:)
+2_conditionals,example9,Sintatico,Ternario sem interrogacao (?)
+2_conditionals,example10,Sintatico,Ponto-e-virgula antes do bloco if
+3_variables,example1,Sintatico,Variavel nao inicializada sendo usada
+3_variables,example2,Sintatico,Tipo errado na declaracao (String x = 5)
+3_variables,example3,Sintatico,Uso de variavel antes de declarar
+3_variables,example4,Sintatico,Atribuicao a final apos inicializacao
+3_variables,example5,Sintatico,Operador de atribuicao errado (=+ em vez de +=)
+3_variables,example6,Sintatico,Declaracao duplicada de variavel no mesmo escopo
+3_variables,example7,Sintatico,Uso de palavra reservada (class) como nome de variavel
+3_variables,example8,Sintatico,Casting faltando (Object para int)
+3_variables,example9,Sintatico,Variavel local com mesmo nome de parametro
+3_variables,example10,Sintatico,Divisao inteira quando deveria ser double
+4_loops,example1,Sintatico,For sem ponto-e-virgula entre secoes
+4_loops,example2,Sintatico,While sem parenteses na condicao
+4_loops,example3,Sintatico,Do-while sem palavra-chave while
+4_loops,example4,Sintatico,Do-while sem ponto-e-virgula apos while
+4_loops,example5,Sintatico,For-each com sintaxe errada (in em vez de :)
+4_loops,example6,Sintatico,Loop infinito nao intencional (while true)
+4_loops,example7,Sintatico,Incremento errado (i+ em vez de i++)
+4_loops,example8,Sintatico,Break fora de loop
+4_loops,example9,Sintatico,For sem parenteses
+4_loops,example10,Sintatico,Label de loop mal formado (break sem ;)
+5_arrays,example1,Sintatico,Declaracao de array errada (int [5] arr)
+5_arrays,example2,Sintatico,Acesso a indice com parenteses em vez de colchetes
+5_arrays,example3,Sintatico,Array nao inicializado
+5_arrays,example4,Sintatico,Array multidimensional com dimensao faltando
+5_arrays,example5,Sintatico,Array.length() com parenteses (deveria ser .length)
+5_arrays,example6,Sintatico,ArrayList sem tipo generico
+5_arrays,example7,Sintatico,Uso de [] em vez de .get() em ArrayList
+5_arrays,example8,Sintatico,Tentativa de modificar array.length
+5_arrays,example9,Sintatico,Inicializacao de array sem new
+5_arrays,example10,Sintatico,Clone de array sem parenteses
+6_operators,example1,Sintatico,Operador de potencia ** (nao existe em Java)
+6_operators,example2,Sintatico,Operador === (JavaScript)
+6_operators,example3,Sintatico,Operador <> (SQL) em vez de !=
+6_operators,example4,Sintatico,Precedencia de operadores sem parenteses
+6_operators,example5,Sintatico,Incremento pos em vez de pre (x++ vs ++x)
+6_operators,example6,Sintatico,Operador bit-a-bit (&) em vez de logico (&&)
+6_operators,example7,Sintatico,Divisao por zero nao tratada
+6_operators,example8,Sintatico,Modulo com negativo sem tratar sinal
+6_operators,example9,Sintatico,Shift com valor negativo
+6_operators,example10,Sintatico,Ternario aninhado sem parenteses
+7_strings,example1,Sintatico,Comparacao de String com == em vez de .equals()
+7_strings,example2,Sintatico,Concatenacao sem operador +
+7_strings,example3,Sintatico,Escape de caracteres errado (\n vs \\n)
+7_strings,example4,Sintatico,String multilinha sem concatenacao
+7_strings,example5,Sintatico,charAt() com indice fora do range
+7_strings,example6,Sintatico,substring() com parametros invertidos
+7_strings,example7,Sintatico,Verificacao incompleta de String vazia
+7_strings,example8,Sintatico,Aspas simples para String em vez de duplas
+7_strings,example9,Sintatico,Split sem escape de caractere especial (.)
+7_strings,example10,Sintatico,StringBuffer em vez de StringBuilder
+8_primitives,example1,Sintatico,Unboxing de null causa NullPointerException
+8_primitives,example2,Sintatico,Comparacao de Integer com == (valores > 127)
+8_primitives,example3,Sintatico,Divisao inteira quando deveria ser double
+8_primitives,example4,Sintatico,Overflow de int sem cast para long
+8_primitives,example5,Sintatico,parseInt sem try-catch
+8_primitives,example6,Sintatico,Float sem sufixo f (3.14 em vez de 3.14f)
+8_primitives,example7,Sintatico,Comparacao de double com == (imprecisao)
+8_primitives,example8,Sintatico,Boolean vs boolean em operacoes
+8_primitives,example9,Sintatico,Char como numero sem cast explicito
+8_primitives,example10,Sintatico,Conversao implicita invalida (long para int)
+9_exceptions,example1,Sintatico,Try sem catch ou finally
+9_exceptions,example2,Sintatico,Catch sem tipo de excecao
+9_exceptions,example3,Sintatico,Exception generica antes de especifica
+9_exceptions,example4,Sintatico,Finally sem try
+9_exceptions,example5,Sintatico,Throw sem new
+9_exceptions,example6,Sintatico,Throws na assinatura sem throw no corpo
+9_exceptions,example7,Sintatico,Try-with-resources com recurso nao inicializado
+9_exceptions,example8,Sintatico,Multiplos catches com virgula em vez de pipe
+9_exceptions,example9,Sintatico,Re-throw de excecao sem declarar throws
+9_exceptions,example10,Sintatico,Catch com variavel nao usada (sem underscore)

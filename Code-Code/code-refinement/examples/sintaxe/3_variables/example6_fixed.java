@@ -1,0 +1,1 @@
+public void process() { int value = 5; value = 10; }

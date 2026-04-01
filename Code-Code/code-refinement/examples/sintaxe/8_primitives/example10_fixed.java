@@ -1,0 +1,1 @@
+public int convert(long l) { return (int) l; }

@@ -1,0 +1,1 @@
+public void resize(int[] arr) { arr.length = 10; }
