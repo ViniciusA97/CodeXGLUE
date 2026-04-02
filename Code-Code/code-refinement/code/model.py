@@ -123,7 +123,7 @@ class Beam(object):
 
     def getCurrentState(self):
         "Get the outputs for the current timestep."
-        batch = torch.LongTensor(self.nextYs[-1]).view(-1, 1).to(self.device)
+        batch = self.nextYs[-1].view(-1, 1)
         return batch
 
     def getCurrentOrigin(self):
@@ -163,7 +163,7 @@ class Beam(object):
         # word and beam each score came from
         prevK = bestScoresId // numWords
         self.prevKs.append(prevK)
-        self.nextYs.append((bestScoresId - prevK * numWords))
+        self.nextYs.append((bestScoresId - prevK * numWords).to(self.device))
 
 
         for i in range(self.nextYs[-1].size(0)):
