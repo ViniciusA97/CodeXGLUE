@@ -64,12 +64,12 @@ class CodeRefinementPipeline:
         print("ETAPA 1: Executando Modelo de Code Refinement")
         print("="*80)
         
-        print(f"\n📝 Código com Bug (input):")
+        print(f"\nCódigo com Bug (input):")
         print(f"   {buggy_code}")
         
         # Preprocessar (tokenizar)
-        print(f"\n🔄 Tokenizando...")
-        tokenized = self.preprocessor.tokenize_code(buggy_code)
+        print(f"\nTokenizando...")
+        tokenized = self.preprocessor.preprocess(buggy_code)
         print(f"   {tokenized}")
         
         # Criar arquivos temporários
@@ -87,7 +87,7 @@ class CodeRefinementPipeline:
             os.makedirs(output_dir, exist_ok=True)
             
             # Executar modelo
-            print(f"\n🤖 Rodando modelo...")
+            print(f"\nExecutando modelo...")
             try:
                 run_py_path = os.path.join(self.code_refinement_path, 'code', 'run.py')
                 result = subprocess.run(
@@ -115,20 +115,25 @@ class CodeRefinementPipeline:
                     return None
                 
                 # Ler predição
-                pred_file = os.path.join(output_dir, 'predictions.txt')
+                pred_file = os.path.join(output_dir, 'test_0.output')
                 if not os.path.exists(pred_file):
                     print("ERRO: Arquivo de predição não gerado")
+                    print(f"Output dir: {output_dir}")
+                    print(f"Arquivos gerados: {os.listdir(output_dir) if os.path.exists(output_dir) else 'Nenhum'}")
+                    if result.stderr:
+                        print(f"Stderr do modelo: {result.stderr}")
                     return None
                 
                 with open(pred_file, 'r') as f:
-                    tokenized_output = f.read().strip()
+                    tokenized_output = f.read().strip().split('\n')[0]  # Primeira linha
                 
-                print(f"   ✓ Modelo gerou (tokenizado):")
+                print(f"   Modelo gerou (tokenizado):")
                 print(f"   {tokenized_output}")
                 
                 # Detokenizar
-                print(f"\n🔄 Detokenizando...")
-                detokenized_output = self.detokenizer.detokenize_code(tokenized_output)
+                print(f"\nDetokenizando...")
+                self.detokenizer.set_mappings(self.preprocessor.get_mappings())
+                detokenized_output = self.detokenizer.detokenize(tokenized_output)
                 print(f"   {detokenized_output}")
                 
                 return detokenized_output
@@ -143,7 +148,7 @@ class CodeRefinementPipeline:
     def analyze_with_llm(self, buggy_code, model_output, fixed_code=None):
         """Usa LLM para analisar a correção do modelo."""
         print("\n" + "="*80)
-        print("ETAPA 2: Análise com LLM (Claude)")
+        print("ETAPA 2: Análise com LLM (Claude Haiku 4.5)")
         print("="*80)
         
         prompt = f"""Você é um especialista em Java e correção de código. 
@@ -188,17 +193,17 @@ Por favor, analise:
    - Fraqueza: onde falhou
 
 Format sua resposta de forma clara e visual, usando:
-- ✅ para sucessos
-- ❌ para erros
-- ⚠️ para avisos
-- 🔧 para mudanças
+- [OK] para sucessos
+- [ERRO] para erros
+- [AVISO] para avisos
+- [MUDANÇA] para mudanças
 """
         
-        print("\n💬 Chamando Claude para análise...")
+        print("\nChamando Claude para análise...")
         
         try:
             message = self.client.messages.create(
-                model="claude-3-5-sonnet-20241022",
+                model="claude-haiku-4-5-20251001",
                 max_tokens=2048,
                 messages=[
                     {"role": "user", "content": prompt}
@@ -214,20 +219,20 @@ Format sua resposta de forma clara e visual, usando:
     
     def run_pipeline(self, buggy_code, fixed_code=None):
         """Executa a pipeline completa."""
-        print("\n" + "🚀 " * 20)
-        print("PIPELINE: Code Refinement + LLM Analysis")
-        print("🚀 " * 20)
+        print("\n" + "="*80)
+        print("PIPELINE: Fine Tuning Model + Revisão com LLM")
+        print("="*80)
         
         # Etapa 1: Modelo
         model_output = self.run_model(buggy_code)
         if model_output is None:
-            print("\n❌ Pipeline falhou na etapa 1 (modelo)")
+            print("\nPipeline falhou na etapa 1 (modelo)")
             return False
         
         # Etapa 2: LLM Analysis
         analysis = self.analyze_with_llm(buggy_code, model_output, fixed_code)
         if analysis is None:
-            print("\n❌ Pipeline falhou na etapa 2 (LLM)")
+            print("\nPipeline falhou na etapa 2 (LLM)")
             return False
         
         # Exibir resultado
@@ -236,9 +241,9 @@ Format sua resposta de forma clara e visual, usando:
         print("="*80)
         print(analysis)
         
-        print("\n" + "✅ " * 20)
-        print("PIPELINE CONCLUÍDO COM SUCESSO")
-        print("✅ " * 20 + "\n")
+        print("\n" + "="*80)
+        print("PIPELINE CONCLUIDA COM SUCESSO")
+        print("="*80 + "\n")
         
         return True
 
