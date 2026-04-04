@@ -1,1 +1,1 @@
-public void close(String path) { try (FileInputStream fis = new FileInputStream(path)) { } catch (Exception e) { } }
+public void close(String path) { try { FileInputStream fis = new FileInputStream(path); } catch (Exception e) { } }

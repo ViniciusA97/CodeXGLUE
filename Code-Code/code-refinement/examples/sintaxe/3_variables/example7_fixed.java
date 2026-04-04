@@ -1,1 +1,1 @@
-public void test() { int clazz = 10; }
+public void test() { int myVar = 10; }

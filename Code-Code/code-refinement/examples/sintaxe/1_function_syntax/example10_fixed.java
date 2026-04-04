@@ -1,1 +1,1 @@
-public int process(String flag, int... nums) { return nums.length; }
+public void test(int x, int y, int z) { return; }

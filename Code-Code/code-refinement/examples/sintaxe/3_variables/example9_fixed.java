@@ -1,1 +1,1 @@
-public void method(int x) { x = 5; }
+public void method(int x) { int y = x + 5; }

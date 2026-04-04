@@ -1,1 +1,1 @@
-public int process(int n) { if () return 0; return 1; }
+public int process(int n) { if (n > ) return 0; return 1; }

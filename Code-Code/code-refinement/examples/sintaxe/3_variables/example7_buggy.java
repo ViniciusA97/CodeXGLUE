@@ -1,1 +1,1 @@
-public void test() { int class = 10; }
+public void test() { int private = 10; }

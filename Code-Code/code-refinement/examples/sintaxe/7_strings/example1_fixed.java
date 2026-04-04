@@ -1,1 +1,1 @@
-public boolean compare(String a, String b) { return a.equals(b); }
+public String concat(String a, String b) { return a + b; }

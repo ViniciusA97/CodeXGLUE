@@ -1,1 +1,1 @@
-public void resize(int[] arr) { arr.length = 10; }
+public void resize(int[] arr) { arr.length = 10 }

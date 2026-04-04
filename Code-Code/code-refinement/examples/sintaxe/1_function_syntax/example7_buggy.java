@@ -1,1 +1,1 @@
-public (int x, int y) { return x * y; }
+public int getValue(int a, int b { return a + b; }

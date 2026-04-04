@@ -1,1 +1,1 @@
-public int getCount() { int count; return count; }
+public int getCount() { int count 0; return count; }

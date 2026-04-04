@@ -1,1 +1,1 @@
-public String getName() { return 123; }
+public String toString( { return "test"; }

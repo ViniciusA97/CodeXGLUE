@@ -1,1 +1,1 @@
-public int test(int n) { if (n > 10) return 0; return n; }
+public int test(int n) { for (int i = 0; i < n; i++) { if (i == 5) { break; } } return n; }

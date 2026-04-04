@@ -1,1 +1,1 @@
-public void close(FileInputStream fis) { try (fis) { } }
+public void close(String path) { try { FileInputStream fis = new FileInputStream(path); } }

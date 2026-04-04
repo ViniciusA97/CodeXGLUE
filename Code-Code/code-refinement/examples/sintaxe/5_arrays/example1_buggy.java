@@ -1,1 +1,1 @@
-public void test() { int [5] arr; }
+public void test() { int[] arr; }

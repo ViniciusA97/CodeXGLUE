@@ -1,1 +1,1 @@
-public void ignore() { try { int x = 1 / 0; } catch (Exception e) { }
+public void ignore() { try { int x = 1 / 0; } catch (Exception e) { } }

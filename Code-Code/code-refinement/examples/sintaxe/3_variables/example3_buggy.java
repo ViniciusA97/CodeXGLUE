@@ -1,1 +1,1 @@
-public int calc() { result = 10; int result; return result; }
+public int calc() { int result; result = 10; return result; }
