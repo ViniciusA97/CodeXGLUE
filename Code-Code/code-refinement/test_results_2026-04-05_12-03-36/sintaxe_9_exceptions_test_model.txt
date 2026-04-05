@@ -1,0 +1,180 @@
+TESTE SEM TOKENIZACAO/DETOKENIZACAO
+Pasta: sintaxe_9_exceptions
+Data: 2026-04-05_12-03-36
+Codigo de retorno: 0
+================================================================================
+
+🚀 TESTADOR DE MODELO - CODE REFINEMENT
+================================================================================
+✅ Modelo encontrado: /home/vini/Developer/CodeXGLUE/model.bin
+Preparados 10 exemplos para teste
+
+Executando inferencia...
+Inferencia concluida!
+
+================================================================================
+RESULTADOS DO TESTE
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 1: example10
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test() { try { int x = 5 / 0; } finally System.out.println("Done"); }
+
+CORRECAO ESPERADA:
+   public void test() { try { int x = 5 / 0; } finally { System.out.println("Done"); } }
+
+CORRECAO DO MODELO:
+   public void execute ( ) { try { int x =5 / 0 ; } finally { int x = y / 0 ; } }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 2: example1
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test() { try int x = 5 / 0; catch (Exception e) { } }
+
+CORRECAO ESPERADA:
+   public void test() { try { int x = 5 / 0; } catch (Exception e) { } }
+
+CORRECAO DO MODELO:
+   public void execute ( ) { try { int x = y / 0 ; } catch ( java.lang.Exception t ) { } }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 3: example2
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test() { try { int x = 5 / 0; } catch (e) { } }
+
+CORRECAO ESPERADA:
+   public void test() { try { int x = 5 / 0; } catch (Exception e) { } }
+
+CORRECAO DO MODELO:
+   public void execute ( ) { try { int x = ( ( double ) ( 0 ) ) ; } catch ( java.lang.Exception ) { } }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 4: example3
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test() { try { int x = 5 / 0; } catch (Exception e) System.out.println(e); }
+
+CORRECAO ESPERADA:
+   public void test() { try { int x = 5 / 0; } catch (Exception e) { System.out.println(e); } }
+
+CORRECAO DO MODELO:
+   public void execute ( ) { try { int x = y / 0 ; } catch ( java.lang.Exception c ) { java.lang.System.out.println ( ( ( java.lang.System.out.println ( ) ) ) ; } }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 5: example4
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test() { finally { } try { int x = 5 / 0; } }
+
+CORRECAO ESPERADA:
+   public void test() { try { int x = 5 / 0; } finally { } }
+
+CORRECAO DO MODELO:
+   public void execute ( ) { }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 6: example5
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test() { throw Exception("Erro"); }
+
+CORRECAO ESPERADA:
+   public void test() { throw new Exception("Erro"); }
+
+CORRECAO DO MODELO:
+   public void execute ( ) { }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 7: example6
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test() { throw new Exception("Erro") }
+
+CORRECAO ESPERADA:
+   public void test() { throw new Exception("Erro"); }
+
+CORRECAO DO MODELO:
+   public void execute ( ) { }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 8: example7
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test() { try { int x = 5 / 0; } }
+
+CORRECAO ESPERADA:
+   public void test() { try { int x = 5 / 0; } catch (Exception e) { } }
+
+CORRECAO DO MODELO:
+   public void execute ( ) { try { java.lang.System.out.println ( this . x ) ; } }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 9: example8
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test() { try { int x = 5 / 0; } catch (IOException | SQLException e { } }
+
+CORRECAO ESPERADA:
+   public void test() { try { int x = 5 / 0; } catch (IOException | SQLException e) { } }
+
+CORRECAO DO MODELO:
+   public void execute ( ) { try { int x =5 / 0 ; } catch ( java.lang.Exception | java.lang.Exception t ) { } }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 10: example9
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test() { catch (Exception e) { System.out.println(e); } }
+
+CORRECAO ESPERADA:
+   public void test() { try { int x = 5 / 0; } catch (Exception e) { System.out.println(e); } }
+
+CORRECAO DO MODELO:
+   public void execute ( ) { }
+
+Diferente da esperada
+
+================================================================================
+ESTATISTICAS FINAIS
+================================================================================
+  Total de exemplos: 10
+  Acertos exatos: 0 (0.0%)
+  Diferencas: 10 (100.0%)
+================================================================================
+
+Teste concluido!
+
+
+✅ Teste concluído!

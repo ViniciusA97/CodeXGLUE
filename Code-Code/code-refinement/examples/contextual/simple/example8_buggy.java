@@ -1,1 +1,1 @@
-public boolean isNonZero(int n) { return n == 0; }
+public int half(int n) { return n / 2 / 2; }

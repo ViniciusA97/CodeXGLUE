@@ -1,1 +1,1 @@
-public boolean equals(int a, int b) { return a === b; }
+public boolean test(int x) { return x === 5; }

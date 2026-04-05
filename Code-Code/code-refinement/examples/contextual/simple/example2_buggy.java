@@ -1,1 +1,1 @@
-public int multiply(int a, int b) { return a / b; }
+public int compute(int a, int b) { return a ** b; }

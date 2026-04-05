@@ -1,1 +1,1 @@
-public void multi() { try { } catch (IOException | SQLException e) { } }
+public void test() { try { int x = 5 / 0; } catch (IOException | SQLException e) { } }

@@ -1,1 +1,1 @@
-public String build() { StringBuilder sb = new StringBuilder(); sb.append("test"); return sb.toString(); }
+public String test() { return "Part1" + "Part2" + "Part3"; }

@@ -1,1 +1,1 @@
-public int getLast(int[] arr) { return arr[0]; }
+public int next(int x) { return x ++; }

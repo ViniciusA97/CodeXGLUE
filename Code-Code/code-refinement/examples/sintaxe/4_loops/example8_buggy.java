@@ -1,1 +1,1 @@
-public int test(int n) { for (int i = 0; i < n; i++) { if (i == 5) break; } return n; }
+public void test(int x) { for (int i = 0; i < x; i++) { System.out.println(i); } }

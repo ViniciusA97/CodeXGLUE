@@ -1,1 +1,1 @@
-public int shift(int n) { return n <<< 1; }
+public int test(int a, int b) { return a >>> b; }

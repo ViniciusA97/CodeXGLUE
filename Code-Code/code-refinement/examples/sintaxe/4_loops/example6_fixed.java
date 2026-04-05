@@ -1,1 +1,1 @@
-public void loop(int n) { while (n > 0) { n--; } }
+public void test(int x) { while (x > 0) { x--; } }

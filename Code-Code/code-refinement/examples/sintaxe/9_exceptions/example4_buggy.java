@@ -1,1 +1,1 @@
-public void cleanup() { finally { System.out.println("done"); } }
+public void test() { finally { } try { int x = 5 / 0; } }

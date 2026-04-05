@@ -1,1 +1,1 @@
-public void update() { int MAX = 100 MAX = 200; }
+public int test() { int x = 5 int y = 10; return x + y; }

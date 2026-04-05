@@ -1,0 +1,180 @@
+TESTE SEM TOKENIZACAO/DETOKENIZACAO
+Pasta: sintaxe_3_variables
+Data: 2026-04-05_12-03-36
+Codigo de retorno: 0
+================================================================================
+
+🚀 TESTADOR DE MODELO - CODE REFINEMENT
+================================================================================
+✅ Modelo encontrado: /home/vini/Developer/CodeXGLUE/model.bin
+Preparados 10 exemplos para teste
+
+Executando inferencia...
+Inferencia concluida!
+
+================================================================================
+RESULTADOS DO TESTE
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 1: example10
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test() { int x = 5; int y = x + 2; return y; }
+
+CORRECAO ESPERADA:
+   public int test() { int x = 5; int y = x + 2; return y; }
+
+CORRECAO DO MODELO:
+   public int execute ( ) { int x = y ; int y = x + x ; return y ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 2: example1
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test() { int x 5; return x; }
+
+CORRECAO ESPERADA:
+   public int test() { int x = 5; return x; }
+
+CORRECAO DO MODELO:
+   public int index ( ) { return x ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 3: example2
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test() { int x = 5 return x; }
+
+CORRECAO ESPERADA:
+   public int test() { int x = 5; return x; }
+
+CORRECAO DO MODELO:
+   public int index ( ) { return x ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 4: example3
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public String test() { String name "John"; return name; }
+
+CORRECAO ESPERADA:
+   public String test() { String name = "John"; return name; }
+
+CORRECAO DO MODELO:
+   public java.lang.String name ( ) { return name ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 5: example4
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test() { int x = 5 int y = 10; return x + y; }
+
+CORRECAO ESPERADA:
+   public int test() { int x = 5; int y = 10; return x + y; }
+
+CORRECAO DO MODELO:
+   public int execute ( ) { return x + y ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 6: example5
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test() { int x = 0; x += 5; return x; }
+
+CORRECAO ESPERADA:
+   public int test() { int x = 0; x += 5; return x; }
+
+CORRECAO DO MODELO:
+   public int index ( ) { return x ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 7: example6
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test() { int x = 5; int y = 10; return x + y; }
+
+CORRECAO ESPERADA:
+   public int test() { int x = 5; int y = 10; return x + y; }
+
+CORRECAO DO MODELO:
+   public int execute ( ) { return x + y ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 8: example7
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test() { int value = 5; return value; }
+
+CORRECAO ESPERADA:
+   public int test() { int value = 5; return value; }
+
+CORRECAO DO MODELO:
+   public int index ( ) { return value ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 9: example8
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test() { int x = 5; int y = x + 2; return y; }
+
+CORRECAO ESPERADA:
+   public int test() { int x = 5; int y = x + 2; return y; }
+
+CORRECAO DO MODELO:
+   public int execute ( ) { int x = y ; int y = x + x ; return y ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 10: example9
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test() { int x = 5 + 3; return x; }
+
+CORRECAO ESPERADA:
+   public int test() { int x = 5 + 3; return x; }
+
+CORRECAO DO MODELO:
+   public int index ( ) { return x ; }
+
+Diferente da esperada
+
+================================================================================
+ESTATISTICAS FINAIS
+================================================================================
+  Total de exemplos: 10
+  Acertos exatos: 0 (0.0%)
+  Diferencas: 10 (100.0%)
+================================================================================
+
+Teste concluido!
+
+
+✅ Teste concluído!

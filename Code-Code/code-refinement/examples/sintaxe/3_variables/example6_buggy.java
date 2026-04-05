@@ -1,1 +1,1 @@
-public void process() { int value = 5, value = 10; }
+public int test() { int x = 5; int y = 10; return x + y; }

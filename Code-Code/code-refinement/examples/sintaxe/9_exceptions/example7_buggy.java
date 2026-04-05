@@ -1,1 +1,1 @@
-public void close(String path) { try { FileInputStream fis = new FileInputStream(path); } }
+public void test() { try { int x = 5 / 0; } }

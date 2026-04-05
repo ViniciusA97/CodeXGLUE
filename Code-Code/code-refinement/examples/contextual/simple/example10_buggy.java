@@ -1,1 +1,1 @@
-public boolean check(int x, int y) { return x > y && x < y; }
+public int sum(int[] arr) { int s = 0; for (int x : arr) { s = x; } return s; }

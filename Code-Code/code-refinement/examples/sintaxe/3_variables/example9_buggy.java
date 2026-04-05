@@ -1,1 +1,1 @@
-public void method(int x) { int y = x + }
+public int test() { int x = 5 + 3; return x; }

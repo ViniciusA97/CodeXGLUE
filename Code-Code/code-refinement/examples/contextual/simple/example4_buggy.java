@@ -1,1 +1,1 @@
-public boolean isOdd(int n) { return n % 2 == 0; }
+public int getFirst(int[] arr) { return arr[-1]; }

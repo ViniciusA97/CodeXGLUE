@@ -1,1 +1,1 @@
-public int complex(int a, int b) { return a > b ? a : b }
+public boolean test(boolean a, boolean b) { return a & b; }

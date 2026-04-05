@@ -1,1 +1,1 @@
-public int parse(String s) { try { return Integer.parseInt(s); } catch (Exception e) { return 0 } }
+public float test() { return 5..0f; }

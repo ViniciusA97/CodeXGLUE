@@ -1,1 +1,1 @@
-public int size(int[] arr) { return arr.length; }
+public int test(int[] array) { return array[0]; }

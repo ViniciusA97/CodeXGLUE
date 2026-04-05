@@ -1,1 +1,1 @@
-public Boolean test(boolean b) { return Boolean.valueOf(b && true); }
+public double test() { return 1e10; }

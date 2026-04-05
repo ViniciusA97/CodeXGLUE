@@ -1,1 +1,1 @@
-public boolean check(int a, int b) { return a > 0 && b > 0; }
+public int test(int a, int b) { return a / b; }

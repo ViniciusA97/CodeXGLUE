@@ -1,1 +1,1 @@
-public List<String getData() { return new ArrayList<String>(); }
+public List<String getData() { return null; }

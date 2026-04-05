@@ -1,1 +1,1 @@
-public boolean isValid(int age) { return age >= 18 && age <= 65; }
+public boolean matches(String a, String b) { return a == b; }

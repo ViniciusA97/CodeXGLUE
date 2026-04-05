@@ -1,1 +1,1 @@
-public void test() { int private = 10; }
+public int test() { int value = 5; return value; }

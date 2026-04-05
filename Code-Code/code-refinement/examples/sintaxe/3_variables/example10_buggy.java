@@ -1,1 +1,1 @@
-public double divide(int a, int b) { double result = a / b return result; }
+public int test() { int x = 5; int y = x + 2; return y; }

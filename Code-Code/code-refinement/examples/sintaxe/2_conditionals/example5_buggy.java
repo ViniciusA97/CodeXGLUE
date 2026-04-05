@@ -1,1 +1,1 @@
-public boolean validate(int a, int b) { return a > 0 && b > 0 }
+public boolean test(int a) { return a > 10 & a < 0; }

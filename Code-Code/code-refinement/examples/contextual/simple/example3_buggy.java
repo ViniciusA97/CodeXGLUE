@@ -1,1 +1,1 @@
-public int getFirst(int[] arr) { return arr[arr.length - 1]; }
+public boolean isEqual(int a, int b) { return a = b; }

@@ -1,0 +1,170 @@
+TESTE COM TOKENIZACAO/DETOKENIZACAO
+Pasta: sintaxe_8_primitives
+Data: 2026-04-05_12-03-36
+Codigo de retorno: 0
+================================================================================
+
+================================================================================
+RESULTADOS DO TESTE
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 1: example10
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test() { return 100D; }
+
+CORRECAO ESPERADA:
+   public int test() { return 100; }
+
+CORRECAO DO MODELO:
+   public int test() { return 0; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 2: example1
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public double test() { return 3..14; }
+
+CORRECAO ESPERADA:
+   public double test() { return 3.14; }
+
+CORRECAO DO MODELO:
+   public double test() { return 0; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 3: example2
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public double test() { return 1.5ee10; }
+
+CORRECAO ESPERADA:
+   public double test() { return 1.5e10; }
+
+CORRECAO DO MODELO:
+   public double test() { return 1.0; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 4: example3
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test() { return 0xGGG; }
+
+CORRECAO ESPERADA:
+   public int test() { return 0xFF; }
+
+CORRECAO DO MODELO:
+   public int test() { return 0; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 5: example4
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public char test() { return "a"; }
+
+CORRECAO ESPERADA:
+   public char test() { return 'a'; }
+
+CORRECAO DO MODELO:
+   public char test() { return "a"; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 6: example5
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public float test() { return 5..0f; }
+
+CORRECAO ESPERADA:
+   public float test() { return 5.0f; }
+
+CORRECAO DO MODELO:
+   public float test() { return java.lang.System.exit(0); }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 7: example6
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public long test() { return 999l; }
+
+CORRECAO ESPERADA:
+   public long test() { return 999L; }
+
+CORRECAO DO MODELO:
+   public long test() { return 0L; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 8: example7
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test() { return 0888; }
+
+CORRECAO ESPERADA:
+   public int test() { return 0777; }
+
+CORRECAO DO MODELO:
+   public int test() { return 0; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 9: example8
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public double test() { return e10; }
+
+CORRECAO ESPERADA:
+   public double test() { return 1e10; }
+
+CORRECAO DO MODELO:
+   public double test() { return e10; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 10: example9
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public double test() { return 3.1.4; }
+
+CORRECAO ESPERADA:
+   public double test() { return 3.14; }
+
+CORRECAO DO MODELO:
+   public double test() { return(this . size) + 1; }
+
+Diferente da esperada
+
+================================================================================
+ESTATISTICAS FINAIS
+================================================================================
+  Total de exemplos: 10
+  Acertos exatos: 0 (0.0%)
+  Diferencas: 10 (100.0%)
+================================================================================
+
+Teste concluido!
+

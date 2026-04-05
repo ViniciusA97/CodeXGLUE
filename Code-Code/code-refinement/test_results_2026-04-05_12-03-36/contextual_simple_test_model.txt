@@ -1,0 +1,370 @@
+TESTE SEM TOKENIZACAO/DETOKENIZACAO
+Pasta: contextual_simple
+Data: 2026-04-05_12-03-36
+Codigo de retorno: 0
+================================================================================
+
+🚀 TESTADOR DE MODELO - CODE REFINEMENT
+================================================================================
+✅ Modelo encontrado: /home/vini/Developer/CodeXGLUE/model.bin
+Preparados 20 exemplos para teste
+
+Executando inferencia...
+Inferencia concluida!
+
+================================================================================
+RESULTADOS DO TESTE
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 1: example10
+Tipo: Sintatico
+Bug: Atribuicao = em vez de acumulacao +=
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int sum(int[] arr) { int s = 0; for (int x : arr) { s = x; } return s; }
+
+CORRECAO ESPERADA:
+   public int sum(int[] arr) { int s = 0; for (int x : arr) { s += x; } return s; }
+
+CORRECAO DO MODELO:
+   public int sum ( int [ ] array ) { int sum = 0 ; for ( int x : array ) { if ( x != x ) { n = x ; } } return sum ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 2: example11
+Tipo: Contextual
+Bug: Subtract usa + em vez de -
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean isGreater(int a, int b) { return a < b; }
+
+CORRECAO ESPERADA:
+   public boolean isGreater(int a, int b) { return a > b; }
+
+CORRECAO DO MODELO:
+   public boolean isEmpty ( int a , int b ) { return a < b ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 3: example12
+Tipo: Contextual
+Bug: Condicao impossivel (x > y && x < y)
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean isLess(int a, int b) { return a > b; }
+
+CORRECAO ESPERADA:
+   public boolean isLess(int a, int b) { return a < b; }
+
+CORRECAO DO MODELO:
+   public boolean isEmpty ( int a , int b ) { return a < b ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 4: example13
+Tipo: Contextual
+Bug: Indice errado baseado no nome (getLastElement retorna [0])
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int subtract(int a, int b) { return a + b; }
+
+CORRECAO ESPERADA:
+   public int subtract(int a, int b) { return a - b; }
+
+CORRECAO DO MODELO:
+   public int compareTo ( int a , int b ) { return a - b ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 5: example14
+Tipo: Contextual
+Bug: Espaco extra entre operadores (a + + b)
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int getLastElement(int[] array) { if (array == null || array.length == 0) { return -1; } return array[0]; }
+
+CORRECAO ESPERADA:
+   public int getLastElement(int[] array) { if (array == null || array.length == 0) { return -1; } return array[array.length - 1]; }
+
+CORRECAO DO MODELO:
+   public int getValue ( int ... array ) { if ( array == null ) { return - 1 ; } return array [ 0 ] ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 6: example15
+Tipo: Contextual
+Bug: Decremento em vez de incremento (i--)
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int getMax(int a, int b) { return a < b ? a : b; }
+
+CORRECAO ESPERADA:
+   public int getMax(int a, int b) { return a > b ? a : b; }
+
+CORRECAO DO MODELO:
+   public int getConfig ( int a , int b ) { return a < b ? a : b ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 7: example16
+Tipo: Contextual
+Bug: Condicao de loop incorreta (<= causa overflow)
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int getMin(int a, int b) { return a > b ? a : b; }
+
+CORRECAO ESPERADA:
+   public int getMin(int a, int b) { return a < b ? a : b; }
+
+CORRECAO DO MODELO:
+   public int get ( int a , int b ) { return a < b ? a : b ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 8: example17
+Tipo: Contextual
+Bug: Comparacao impossivel (length() < 0)
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean isNegativeOrZero(int n) { return n > 0; }
+
+CORRECAO ESPERADA:
+   public boolean isNegativeOrZero(int n) { return n <= 0; }
+
+CORRECAO DO MODELO:
+   public boolean isEmpty ( int n ) { return n > 0 ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 9: example18
+Tipo: Contextual
+Bug: Operador logico errado (|| em vez de &&)
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean isPositiveOrZero(int n) { return n < 0; }
+
+CORRECAO ESPERADA:
+   public boolean isPositiveOrZero(int n) { return n >= 0; }
+
+CORRECAO DO MODELO:
+   public boolean isEmpty ( int n ) { return n < 0 ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 10: example19
+Tipo: Contextual
+Bug: Divisao inteira em vez de decimal (falta cast)
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int negate(int n) { return n; }
+
+CORRECAO ESPERADA:
+   public int negate(int n) { return -n; }
+
+CORRECAO DO MODELO:
+   public int delete ( int n ) { return n ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 11: example1
+Tipo: Sintatico
+Bug: Indice negativo em array (array[-1] deveria ser array[0])
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int getValue(int[] array) { return array[-1]; }
+
+CORRECAO ESPERADA:
+   public int getValue(int[] array) { return array[0]; }
+
+CORRECAO DO MODELO:
+   public int getValue ( int [ ] array ) { return array [ 0 ] ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 12: example20
+Tipo: Contextual
+Bug: Atribuicao em vez de acumulacao no loop
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean isNotEqual(int a, int b) { return a == b; }
+
+CORRECAO ESPERADA:
+   public boolean isNotEqual(int a, int b) { return a != b; }
+
+CORRECAO DO MODELO:
+   public boolean isEmpty ( int a , int b ) { return a == b ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 13: example2
+Tipo: Sintatico
+Bug: Operador ** (Python) em vez de * (Java)
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int compute(int a, int b) { return a ** b; }
+
+CORRECAO ESPERADA:
+   public int compute(int a, int b) { return a * b; }
+
+CORRECAO DO MODELO:
+   public int METHOD_1 ( int a , int b ) { return a * b ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 14: example3
+Tipo: Sintatico
+Bug: Atribuicao (=) em vez de comparacao (==)
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean isEqual(int a, int b) { return a = b; }
+
+CORRECAO ESPERADA:
+   public boolean isEqual(int a, int b) { return a == b; }
+
+CORRECAO DO MODELO:
+   public boolean isEmpty ( int a , int b ) { return a < b ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 15: example4
+Tipo: Sintatico
+Bug: Indice negativo variacao (array[-1])
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int getFirst(int[] arr) { return arr[-1]; }
+
+CORRECAO ESPERADA:
+   public int getFirst(int[] arr) { return arr[0]; }
+
+CORRECAO DO MODELO:
+   public int get1 ( int ... args ) { return ( ( int ) ( ( int ) ( array [ 0 ] ) ) ) ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 16: example5
+Tipo: Sintatico
+Bug: Operador ** em vez de *
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public long power(int a, int b) { return a ** b; }
+
+CORRECAO ESPERADA:
+   public long power(int a, int b) { return a * b; }
+
+CORRECAO DO MODELO:
+   public long p ( int a , int b ) { return a * b ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 17: example6
+Tipo: Sintatico
+Bug: Atribuicao = em vez de comparacao ==
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean matches(String a, String b) { return a = b; }
+
+CORRECAO ESPERADA:
+   public boolean matches(String a, String b) { return a == b; }
+
+CORRECAO DO MODELO:
+   public boolean contains ( java.lang.String a , java.lang.String b ) { return a . equals ( b ) ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 18: example7
+Tipo: Sintatico
+Bug: Incremento pos-fixo desnecessario (x ++)
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int next(int x) { return x ++; }
+
+CORRECAO ESPERADA:
+   public int next(int x) { return x; }
+
+CORRECAO DO MODELO:
+   public int get ( int x ) { return x ++ ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 19: example8
+Tipo: Sintatico
+Bug: Divisoes multiplas em vez de divisao unica
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int half(int n) { return n / 2 / 2; }
+
+CORRECAO ESPERADA:
+   public int half(int n) { return n / 4; }
+
+CORRECAO DO MODELO:
+   public int size ( int n ) { return n / ( n / ( n / n ) ) ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 20: example9
+Tipo: Sintatico
+Bug: Operador && em vez de ||
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean check(int x) { return x > 0 && x < 0; }
+
+CORRECAO ESPERADA:
+   public boolean check(int x) { return x > 0 || x < 0; }
+
+CORRECAO DO MODELO:
+   public boolean assert ( int x ) { return x >= 0 ; }
+
+Diferente da esperada
+
+================================================================================
+ESTATISTICAS FINAIS
+================================================================================
+  Total de exemplos: 20
+  Acertos exatos: 0 (0.0%)
+  Diferencas: 20 (100.0%)
+================================================================================
+
+Teste concluido!
+
+
+✅ Teste concluído!

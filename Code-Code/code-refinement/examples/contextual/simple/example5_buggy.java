@@ -1,1 +1,1 @@
-public boolean isEmpty(String str) { return str.length() < 0; }
+public long power(int a, int b) { return a ** b; }

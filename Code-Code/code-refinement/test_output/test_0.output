@@ -1,0 +1,20 @@
+public int sum ( int [ ] array ) { int sum = 0 ; for ( int x : array ) { if ( x != x ) { n = x ; } } return sum ; }
+public boolean isEmpty ( int a , int b ) { return a < b ; }
+public boolean isEmpty ( int a , int b ) { return a < b ; }
+public int compareTo ( int a , int b ) { return a - b ; }
+public int getValue ( int ... array ) { if ( array == null ) { return - 1 ; } return array [ 0 ] ; }
+public int getConfig ( int a , int b ) { return a < b ? a : b ; }
+public int get ( int a , int b ) { return a < b ? a : b ; }
+public boolean isEmpty ( int n ) { return n > 0 ; }
+public boolean isEmpty ( int n ) { return n < 0 ; }
+public int delete ( int n ) { return n ; }
+public int getValue ( int [ ] array ) { return array [ 0 ] ; }
+public boolean isEmpty ( int a , int b ) { return a == b ; }
+public int METHOD_1 ( int a , int b ) { return a * b ; }
+public boolean isEmpty ( int a , int b ) { return a < b ; }
+public int get1 ( int ... args ) { return ( ( int ) ( ( int ) ( array [ 0 ] ) ) ) ; }
+public long p ( int a , int b ) { return a * b ; }
+public boolean contains ( java.lang.String a , java.lang.String b ) { return a . equals ( b ) ; }
+public int get ( int x ) { return x ++ ; }
+public int size ( int n ) { return n / ( n / ( n / n ) ) ; }
+public boolean assert ( int x ) { return x >= 0 ; }

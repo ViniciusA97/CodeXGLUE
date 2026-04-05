@@ -1,1 +1,1 @@
-public void rethrow() { try { throw new IOException(); } catch (IOException e) { throw e; } }
+public void test() { catch (Exception e) { System.out.println(e); } }

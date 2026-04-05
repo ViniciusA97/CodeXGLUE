@@ -1,0 +1,170 @@
+TESTE COM TOKENIZACAO/DETOKENIZACAO
+Pasta: sintaxe_6_operators
+Data: 2026-04-05_12-03-36
+Codigo de retorno: 0
+================================================================================
+
+================================================================================
+RESULTADOS DO TESTE
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 1: example10
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean test(boolean a, boolean b) { return a & b; }
+
+CORRECAO ESPERADA:
+   public boolean test(boolean a, boolean b) { return a && b; }
+
+CORRECAO DO MODELO:
+   public boolean test(boolean a, boolean b) { return a && b; }
+
+Correto
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 2: example1
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test(int a, int b) { return a + b }
+
+CORRECAO ESPERADA:
+   public int test(int a, int b) { return a + b; }
+
+CORRECAO DO MODELO:
+   public int test(int a, int b) { return a + b; }
+
+Correto
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 3: example2
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean test(int x) { return x === 5; }
+
+CORRECAO ESPERADA:
+   public boolean test(int x) { return x == 5; }
+
+CORRECAO DO MODELO:
+   public boolean test(int x) { return x ==(- 1); }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 4: example3
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean test(int x) { return x <> 5; }
+
+CORRECAO ESPERADA:
+   public boolean test(int x) { return x != 5; }
+
+CORRECAO DO MODELO:
+   public boolean test(int x) { return x < >(- 1); }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 5: example4
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test(int a, int b) { return a ** b; }
+
+CORRECAO ESPERADA:
+   public int test(int a, int b) { return (int) Math.pow(a, b); }
+
+CORRECAO DO MODELO:
+   public int test(int a, int b) { return a * b; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 6: example5
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean test(boolean a, boolean b) { return a && b && }
+
+CORRECAO ESPERADA:
+   public boolean test(boolean a, boolean b) { return a && b; }
+
+CORRECAO DO MODELO:
+   public boolean test(boolean a, boolean b) { return a && b; }
+
+Correto
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 7: example6
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test(int a, int b) { return a // b; }
+
+CORRECAO ESPERADA:
+   public int test(int a, int b) { return a / b; }
+
+CORRECAO DO MODELO:
+   public int test(int a, int b) { return a; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 8: example7
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test(int a, int b) { return a %% b; }
+
+CORRECAO ESPERADA:
+   public int test(int a, int b) { return a % b; }
+
+CORRECAO DO MODELO:
+   public int test(int a, int b) { return a % b; }
+
+Correto
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 9: example8
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test(int a, int b) { return a >> b; }
+
+CORRECAO ESPERADA:
+   public int test(int a, int b) { return a * b; }
+
+CORRECAO DO MODELO:
+   public int test(int a, int b) { return a > > b; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 10: example9
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test(int a, int b) { return a >>> b; }
+
+CORRECAO ESPERADA:
+   public int test(int a, int b) { return a + b; }
+
+CORRECAO DO MODELO:
+   public int test(int a, int b) { return a > > > b; }
+
+Diferente da esperada
+
+================================================================================
+ESTATISTICAS FINAIS
+================================================================================
+  Total de exemplos: 10
+  Acertos exatos: 4 (40.0%)
+  Diferencas: 6 (60.0%)
+================================================================================
+
+Teste concluido!
+

@@ -1,1 +1,1 @@
-public void test() { String x = "5"; }
+public int test() { int x = 5; return x; }

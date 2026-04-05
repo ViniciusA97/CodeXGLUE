@@ -1,1 +1,1 @@
-public void check() throws IOException { throw new IOException("error"); }
+public void test() { throw new Exception("Erro"); }

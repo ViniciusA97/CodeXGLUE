@@ -1,1 +1,1 @@
-public int increment(int x) { x += 1; return x; }
+public int test() { int x = 0; x += 5; return x; }

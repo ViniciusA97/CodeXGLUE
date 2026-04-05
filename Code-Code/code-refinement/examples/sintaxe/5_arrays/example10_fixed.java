@@ -1,1 +1,1 @@
-public int[] copy(int[] arr) { return arr.clone(); }
+public int[] test(int[] arr) { return arr . clone(); }

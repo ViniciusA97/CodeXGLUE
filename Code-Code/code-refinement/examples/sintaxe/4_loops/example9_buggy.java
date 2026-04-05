@@ -1,1 +1,1 @@
-public int process(int n) { for int i = 0; i < n; i++ { } return n; }
+public void test() { for int i = 0; i < 10; i++) { System.out.println(i); } }

@@ -1,1 +1,1 @@
-public int compare(int a, int b) { if (a > b) return 1; return 0; }
+public boolean test(int a) { return a != 5; }

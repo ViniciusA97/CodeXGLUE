@@ -1,1 +1,1 @@
-public String test() { return "hello"; }
+public String test() { return "text"; }

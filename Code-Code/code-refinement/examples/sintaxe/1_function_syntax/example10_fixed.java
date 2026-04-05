@@ -1,1 +1,1 @@
-public void test(int x, int y, int z) { return; }
+public void test(int x, int y, int z) { }

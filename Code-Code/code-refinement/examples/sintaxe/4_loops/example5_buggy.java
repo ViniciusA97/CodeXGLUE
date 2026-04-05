@@ -1,1 +1,1 @@
-public int sumArray(int[] arr) { int sum = 0; for (int n in arr) sum += n; return sum; }
+public void test(int[] array) { for (int x in array) { System.out.println(x); } }

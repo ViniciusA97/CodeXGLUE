@@ -1,1 +1,1 @@
-public boolean equals(double a, double b) { return Math.abs(a - b) < 0.0001 }
+public int test() { return 0888; }

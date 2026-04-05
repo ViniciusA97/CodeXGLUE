@@ -1,0 +1,20 @@
+public int sum(int[] arr) { int s = 0; for (int x : arr) { s += x; } return s; }
+public boolean isGreater(int a, int b) { return a > b; }
+public boolean isLess(int a, int b) { return a < b; }
+public int subtract(int a, int b) { return a - b; }
+public int getLastElement(int[] array) { if (array == null || array.length == 0) { return -1; } return array[array.length - 1]; }
+public int getMax(int a, int b) { return a > b ? a : b; }
+public int getMin(int a, int b) { return a < b ? a : b; }
+public boolean isNegativeOrZero(int n) { return n <= 0; }
+public boolean isPositiveOrZero(int n) { return n >= 0; }
+public int negate(int n) { return -n; }
+public int getValue(int[] array) { return array[0]; }
+public boolean isNotEqual(int a, int b) { return a != b; }
+public int compute(int a, int b) { return a * b; }
+public boolean isEqual(int a, int b) { return a == b; }
+public int getFirst(int[] arr) { return arr[0]; }
+public long power(int a, int b) { return a * b; }
+public boolean matches(String a, String b) { return a == b; }
+public int next(int x) { return x; }
+public int half(int n) { return n / 4; }
+public boolean check(int x) { return x > 0 || x < 0; }

@@ -1,1 +1,1 @@
-public int calc() { int result = 10; return result; }
+public String test() { String name = "John"; return name; }

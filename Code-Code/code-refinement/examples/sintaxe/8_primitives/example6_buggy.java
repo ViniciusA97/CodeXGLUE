@@ -1,1 +1,1 @@
-public float pi() { float f = 3.14; return f }
+public long test() { return 999l; }

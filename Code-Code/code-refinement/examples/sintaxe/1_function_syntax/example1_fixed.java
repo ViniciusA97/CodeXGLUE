@@ -1,1 +1,1 @@
-public int getValue() { return 42; }
+public int sum(int a, int b) { return a+b; }

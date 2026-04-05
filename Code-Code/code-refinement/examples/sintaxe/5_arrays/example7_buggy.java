@@ -1,1 +1,1 @@
-public int get(ArrayList<Integer> list, int i) { return list[i]; }
+public int test(java.util.List list) { return list[0]; }

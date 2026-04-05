@@ -1,1 +1,1 @@
-public int[] init() { return {1, 2, 3}; }
+public int test(int[] arr) { return arr.0; }

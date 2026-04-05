@@ -1,1 +1,1 @@
-public boolean compare(Integer a, Integer b) { return a.equals(b) }
+public double test() { return 1.5ee10; }

@@ -1,1 +1,1 @@
-public int power(int a, int b) { return a + b; }
+public int test(int a, int b) { return a + b; }

@@ -1,21 +1,21 @@
 example,tipo,descricao
-example1,Contextual,add usa - em vez de +
-example2,Contextual,multiply usa / em vez de *
-example3,Contextual,getFirst retorna ultimo elemento
-example4,Contextual,isOdd verifica par (== 0)
-example5,Contextual,isEmpty verifica length() < 0
-example6,Contextual,isValid usa || em vez de &&
-example7,Contextual,getLast retorna primeiro elemento
-example8,Contextual,isNonZero verifica == 0
-example9,Contextual,divide usa * em vez de /
-example10,Contextual,check usa && em vez de ||
-example11,Contextual,isGreater usa < em vez de >
-example12,Contextual,isLess usa > em vez de <
-example13,Contextual,subtract usa + em vez de -
-example14,Contextual,getLastElement retorna [0]
-example15,Contextual,getMax usa < em vez de >
-example16,Contextual,getMin usa > em vez de <
-example17,Contextual,isNegativeOrZero verifica > 0
-example18,Contextual,isPositiveOrZero verifica < 0
-example19,Contextual,negate retorna n sem negacao
-example20,Contextual,isNotEqual usa == em vez de !=
+example1,Sintatico,Indice negativo em array (array[-1] deveria ser array[0])
+example2,Sintatico,Operador ** (Python) em vez de * (Java)
+example3,Sintatico,Atribuicao (=) em vez de comparacao (==)
+example4,Sintatico,Indice negativo variacao (array[-1])
+example5,Sintatico,Operador ** em vez de *
+example6,Sintatico,Atribuicao = em vez de comparacao ==
+example7,Sintatico,Incremento pos-fixo desnecessario (x ++)
+example8,Sintatico,Divisoes multiplas em vez de divisao unica
+example9,Sintatico,Operador && em vez de ||
+example10,Sintatico,Atribuicao = em vez de acumulacao +=
+example11,Contextual,Subtract usa + em vez de -
+example12,Contextual,Condicao impossivel (x > y && x < y)
+example13,Contextual,Indice errado baseado no nome (getLastElement retorna [0])
+example14,Contextual,Espaco extra entre operadores (a + + b)
+example15,Contextual,Decremento em vez de incremento (i--)
+example16,Contextual,Condicao de loop incorreta (<= causa overflow)
+example17,Contextual,Comparacao impossivel (length() < 0)
+example18,Contextual,Operador logico errado (|| em vez de &&)
+example19,Contextual,Divisao inteira em vez de decimal (falta cast)
+example20,Contextual,Atribuicao em vez de acumulacao no loop

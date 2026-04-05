@@ -1,1 +1,1 @@
-public int convert(long l) { return (int) l; }
+public int test() { return 100; }

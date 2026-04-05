@@ -1,1 +1,1 @@
-public int[] resize(int[] arr) { return new int[10]; }
+public void test() { int[] arr = {1, 2, 3}; }

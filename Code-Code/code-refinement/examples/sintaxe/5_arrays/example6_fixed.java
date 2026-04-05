@@ -1,1 +1,1 @@
-public void process() { ArrayList list = new ArrayList(); }
+public void test() { java.util.List<Integer> list = new java.util.ArrayList<Integer>(); }

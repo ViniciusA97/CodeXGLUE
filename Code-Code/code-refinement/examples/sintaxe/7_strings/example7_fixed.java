@@ -1,1 +1,1 @@
-public boolean isEmpty(String s) { return s == null || s.isEmpty(); }
+public java.lang.String test() { return "He said \"Hi\""; }

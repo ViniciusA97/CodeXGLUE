@@ -1,1 +1,1 @@
-public int[] create() { int[] arr = new int[10] return arr; }
+public int test(int[] arr) { return arr.length(0); }

@@ -1,1 +1,1 @@
-public String newline() { return "Hello\nWorld" }
+public String test() { return "test" }

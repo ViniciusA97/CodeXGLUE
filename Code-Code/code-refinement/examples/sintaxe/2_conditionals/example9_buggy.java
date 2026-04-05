@@ -1,1 +1,1 @@
-public int sign(int n) { return n > 0  1 : -1; }
+public boolean test(int a) { return a => 10; }

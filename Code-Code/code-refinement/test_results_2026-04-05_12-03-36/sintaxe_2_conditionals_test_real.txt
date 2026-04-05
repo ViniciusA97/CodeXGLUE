@@ -1,0 +1,170 @@
+TESTE COM TOKENIZACAO/DETOKENIZACAO
+Pasta: sintaxe_2_conditionals
+Data: 2026-04-05_12-03-36
+Codigo de retorno: 0
+================================================================================
+
+================================================================================
+RESULTADOS DO TESTE
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 1: example10
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean test(int a) { return a =! 5; }
+
+CORRECAO ESPERADA:
+   public boolean test(int a) { return a != 5; }
+
+CORRECAO DO MODELO:
+   public boolean test(int a) { return a ==(!(a) ); }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 2: example1
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean test(int a) { return a === 5; }
+
+CORRECAO ESPERADA:
+   public boolean test(int a) { return a == 5; }
+
+CORRECAO DO MODELO:
+   public boolean test(int a) { return a ==(- 1); }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 3: example2
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean test(int a) { return a !!= 5; }
+
+CORRECAO ESPERADA:
+   public boolean test(int a) { return a != 5; }
+
+CORRECAO DO MODELO:
+   public boolean test(int a) { return a !=(- 1); }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 4: example3
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean test(String a) { return a == "hello"; }
+
+CORRECAO ESPERADA:
+   public boolean test(String a) { return a.equals("hello"); }
+
+CORRECAO DO MODELO:
+   public boolean test(java.lang.String a) { return a . equals("hello"); }
+
+Correta
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 5: example4
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean test(boolean a, boolean b) { return a & b; }
+
+CORRECAO ESPERADA:
+   public boolean test(boolean a, boolean b) { return a && b; }
+
+CORRECAO DO MODELO:
+   public boolean test(boolean a, boolean b) { return a && b; }
+
+Correto
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 6: example5
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean test(int a) { return a > 10 & a < 0; }
+
+CORRECAO ESPERADA:
+   public boolean test(int a) { return a > 10 && a < 0; }
+
+CORRECAO DO MODELO:
+   public boolean test(int a) { return a >= 0; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 7: example6
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean test(boolean a, boolean b) { return a | b; }
+
+CORRECAO ESPERADA:
+   public boolean test(boolean a, boolean b) { return a || b; }
+
+CORRECAO DO MODELO:
+   public boolean test(boolean a, boolean b) { return a || b; }
+
+Correto
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 8: example7
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean test(boolean a, boolean b) { return a && !!b; }
+
+CORRECAO ESPERADA:
+   public boolean test(boolean a, boolean b) { return a && !b; }
+
+CORRECAO DO MODELO:
+   public boolean test(boolean a, boolean b) { return a && b; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 9: example8
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean test(int a, int b) { return a =< b; }
+
+CORRECAO ESPERADA:
+   public boolean test(int a, int b) { return a <= b; }
+
+CORRECAO DO MODELO:
+   public boolean test(int a, int b) { return a == b; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 10: example9
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public boolean test(int a) { return a => 10; }
+
+CORRECAO ESPERADA:
+   public boolean test(int a) { return a >= 10; }
+
+CORRECAO DO MODELO:
+   public boolean test(int a) { return a >=(- 1); }
+
+Diferente da esperada
+
+================================================================================
+ESTATISTICAS FINAIS
+================================================================================
+  Total de exemplos: 10
+  Acertos exatos: 3 (30.0%)
+  Diferencas: 7 (70.0%)
+================================================================================
+
+Teste concluido!
+

@@ -1,1 +1,1 @@
-public int test(int x) { return ++x; }
+public boolean test(boolean a, boolean b) { return a && b; }

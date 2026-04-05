@@ -1,1 +1,1 @@
-public getValue() { return 42; }
+public String sum(int a, int b) { return a+b; }

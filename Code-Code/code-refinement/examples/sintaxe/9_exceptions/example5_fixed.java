@@ -1,1 +1,1 @@
-public void error() { throw new RuntimeException("error"); }
+public void test() { throw new Exception("Erro"); }

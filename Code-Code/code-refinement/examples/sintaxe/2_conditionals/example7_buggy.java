@@ -1,1 +1,1 @@
-public String grade(int score) { switch (score) { case 90 return "A"; case 80 return "B"; default return "C"; } }
+public boolean test(boolean a, boolean b) { return a && !!b; }

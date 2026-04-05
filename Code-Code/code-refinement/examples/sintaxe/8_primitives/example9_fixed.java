@@ -1,1 +1,1 @@
-public int charToInt(char c) { return (int) c; }
+public double test() { return 3.14; }

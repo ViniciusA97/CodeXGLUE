@@ -1,1 +1,1 @@
-public int decrement(int n) { do { n--; } while (n > 0); return n; }
+public void test(int x) { do { x ++; } while(x > 0); }

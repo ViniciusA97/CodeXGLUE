@@ -1,1 +1,1 @@
-public void process() { try { } catch (IOException e) { } catch (Exception e) { } }
+public void test() { try { int x = 5 / 0; } catch (Exception e) { System.out.println(e); } }

@@ -42,14 +42,14 @@ from detokenize_java import JavaDetokenizer
 
 
 class CodeRefinementPipeline:
-    def __init__(self, model_path=None):
+    def __init__(self, model_path=None, skip_tokenize=False):
         # Usar modelo padrão se não fornecido
         if model_path is None:
             model_path = os.path.join(PROJECT_ROOT, 'pytorch_model.bin')
         
         self.model_path = model_path
         self.code_refinement_path = CODE_REFINEMENT_PATH
-        self.model_path = model_path
+        self.skip_tokenize = skip_tokenize
         self.preprocessor = JavaPreprocessor()
         self.detokenizer = JavaDetokenizer()
         self.client = anthropic.Anthropic()
@@ -67,9 +67,13 @@ class CodeRefinementPipeline:
         print(f"\nCódigo com Bug (input):")
         print(f"   {buggy_code}")
         
-        # Preprocessar (tokenizar)
-        print(f"\nTokenizando...")
-        tokenized = self.preprocessor.preprocess(buggy_code)
+        # Preprocessar (tokenizar) - a menos que skip_tokenize seja True
+        if self.skip_tokenize:
+            print(f"\nTOKENIZACÃO IGNORADA (--skip-tokenize)")
+            tokenized = buggy_code
+        else:
+            print(f"\nTokenizando...")
+            tokenized = self.preprocessor.preprocess(buggy_code)
         print(f"   {tokenized}")
         
         # Criar arquivos temporários
@@ -132,8 +136,12 @@ class CodeRefinementPipeline:
                 
                 # Detokenizar
                 print(f"\nDetokenizando...")
-                self.detokenizer.set_mappings(self.preprocessor.get_mappings())
-                detokenized_output = self.detokenizer.detokenize(tokenized_output)
+                if self.skip_tokenize:
+                    print(f"   DETOKENIZAÇÃO IGNORADA (--skip-tokenize)")
+                    detokenized_output = tokenized_output
+                else:
+                    self.detokenizer.set_mappings(self.preprocessor.get_mappings())
+                    detokenized_output = self.detokenizer.detokenize(tokenized_output)
                 print(f"   {detokenized_output}")
                 
                 return detokenized_output
@@ -266,6 +274,9 @@ Exemplos:
   
   # Com modelo customizado
   python pipeline_model_llm.py --code "..." --model code/output_small/checkpoint-best-bleu/pytorch_model.bin
+  
+  # SEM tokenização (passar código já tokenizado)
+  python pipeline_model_llm.py --code "public METHOD_1 ( ) { return 42 ; }" --skip-tokenize
         """
     )
     
@@ -274,6 +285,8 @@ Exemplos:
     parser.add_argument('--expected', type=str, help='Arquivo com código esperado (para referência)')
     parser.add_argument('--model', type=str, default=None,
                        help='Caminho para o modelo treinado (padrão: /pytorch_model.bin na raiz)')
+    parser.add_argument('--skip-tokenize', action='store_true',
+                       help='Não tokenizar o input (passar código já pré-processado)')
     
     
     args = parser.parse_args()
@@ -308,7 +321,7 @@ Exemplos:
                 fixed_code = f.read().strip()
     
     # Criar pipeline e executar
-    pipeline = CodeRefinementPipeline(model_path=args.model)
+    pipeline = CodeRefinementPipeline(model_path=args.model, skip_tokenize=args.skip_tokenize)
     success = pipeline.run_pipeline(buggy_code, fixed_code)
     
     sys.exit(0 if success else 1)

@@ -1,1 +1,1 @@
-public String concat(String a, String b) { return a + b; }
+public String test(String s1, String s2) { return s1 + s2; }

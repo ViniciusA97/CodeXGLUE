@@ -1,1 +1,1 @@
-public int calculate(int a int b, int c) { return a + b + c; }
+public int divide(int a, int b { return a / b; }

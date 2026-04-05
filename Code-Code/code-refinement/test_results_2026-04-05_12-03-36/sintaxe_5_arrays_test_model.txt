@@ -1,0 +1,180 @@
+TESTE SEM TOKENIZACAO/DETOKENIZACAO
+Pasta: sintaxe_5_arrays
+Data: 2026-04-05_12-03-36
+Codigo de retorno: 0
+================================================================================
+
+🚀 TESTADOR DE MODELO - CODE REFINEMENT
+================================================================================
+✅ Modelo encontrado: /home/vini/Developer/CodeXGLUE/model.bin
+Preparados 10 exemplos para teste
+
+Executando inferencia...
+Inferencia concluida!
+
+================================================================================
+RESULTADOS DO TESTE
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 1: example10
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int[] test(int[] arr) { return arr.clone() }
+
+CORRECAO ESPERADA:
+   public int[] test(int[] arr) { return arr . clone(); }
+
+CORRECAO DO MODELO:
+   public int [ ] args ( int [ ] arg ) { return n . delete ( ) ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 2: example1
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test(int[] arr) { return arr(0); }
+
+CORRECAO ESPERADA:
+   public int test(int[] arr) { return arr[0]; }
+
+CORRECAO DO MODELO:
+   public int index ( int [ ] arg ) { return ( ( int ) ( n ) ) ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 3: example2
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test() { arr = {1,2,3}; }
+
+CORRECAO ESPERADA:
+   public void test() { int[] arr = {1,2,3}; }
+
+CORRECAO DO MODELO:
+   public void main ( ) { }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 4: example3
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test(int[] arr) { return arr.length(0); }
+
+CORRECAO ESPERADA:
+   public int test(int[] arr) { return arr.length; }
+
+CORRECAO DO MODELO:
+   public int index ( int [ ] arg ) { return array . length ( 0 ) ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 5: example4
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test(int[] arr) { int[] copy = arr.copy(); }
+
+CORRECAO ESPERADA:
+   public void test(int[] arr) { int[] copy = arr . copy(); }
+
+CORRECAO DO MODELO:
+   public void assert ( int [ ] arg ) { }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 6: example5
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test(int[] array) { return array[-1]; }
+
+CORRECAO ESPERADA:
+   public int test(int[] array) { return array[0]; }
+
+CORRECAO DO MODELO:
+   public int index ( int [ ] array ) { return array [ 0 ] ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 7: example6
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test() { java.util.List<Integer list = new java.util.ArrayList<Integer>(); }
+
+CORRECAO ESPERADA:
+   public void test() { java.util.List<Integer> list = new java.util.ArrayList<Integer>(); }
+
+CORRECAO DO MODELO:
+   public void main ( ) { java.util.List < java.lang.Integer > list = new java.util.ArrayList < java.lang.Integer > ( ) ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 8: example7
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test(java.util.List list) { return list[0]; }
+
+CORRECAO ESPERADA:
+   public int test(java.util.List list) { return list.get(0); }
+
+CORRECAO DO MODELO:
+   public int index ( java.util.List list ) { return list [ 0 ] ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 9: example8
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test() { int[] arr = [1, 2, 3]; }
+
+CORRECAO ESPERADA:
+   public void test() { int[] arr = {1, 2, 3}; }
+
+CORRECAO DO MODELO:
+   public void execute ( ) { }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 10: example9
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public int test(int[] arr) { return arr.0; }
+
+CORRECAO ESPERADA:
+   public int test(int[] arr) { return arr[0]; }
+
+CORRECAO DO MODELO:
+   public int index ( int [ ] arg ) { return n . index ; }
+
+Diferente da esperada
+
+================================================================================
+ESTATISTICAS FINAIS
+================================================================================
+  Total de exemplos: 10
+  Acertos exatos: 0 (0.0%)
+  Diferencas: 10 (100.0%)
+================================================================================
+
+Teste concluido!
+
+
+✅ Teste concluído!

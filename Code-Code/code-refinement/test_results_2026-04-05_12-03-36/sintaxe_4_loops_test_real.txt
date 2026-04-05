@@ -1,0 +1,170 @@
+TESTE COM TOKENIZACAO/DETOKENIZACAO
+Pasta: sintaxe_4_loops
+Data: 2026-04-05_12-03-36
+Codigo de retorno: 0
+================================================================================
+
+================================================================================
+RESULTADOS DO TESTE
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 1: example10
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test(int x) { while (x > 0) { x--; break }
+
+CORRECAO ESPERADA:
+   public void test(int x) { while (x > 0) { x--; break; }
+
+CORRECAO DO MODELO:
+   public void test(int x) { while(x); }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 2: example1
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test() { for (int i = 0 i < 10; i++) System.out.println(i); }
+
+CORRECAO ESPERADA:
+   public void test() { for (int i = 0; i < 10; i++) System.out.println(i); }
+
+CORRECAO DO MODELO:
+   public void test() { for(int i); }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 3: example2
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test(int x) { while x > 0 { x--; } }
+
+CORRECAO ESPERADA:
+   public void test(int x) { while(x > 0) { x --; } }
+
+CORRECAO DO MODELO:
+   public void test(int x) { while(x > 0) { x --; } }
+
+Correto
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 4: example3
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test(int x) { do { x++; } (x > 0); }
+
+CORRECAO ESPERADA:
+   public void test(int x) { do { x++; } while(x > 0); }
+
+CORRECAO DO MODELO:
+   public void test(int x) { do { x ++; } finally { x ++; } }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 5: example4
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test(int x) { do { x++; } while (x > 0) }
+
+CORRECAO ESPERADA:
+   public void test(int x) { do { x ++; } while(x > 0); }
+
+CORRECAO DO MODELO:
+   public void test(int x) { do { x ++; } while(x > 0); }
+
+Correto
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 6: example5
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test(int[] array) { for (int x in array) { System.out.println(x); } }
+
+CORRECAO ESPERADA:
+   public void test(int[] array) { for (int x : array) { System.out.println(x); } }
+
+CORRECAO DO MODELO:
+   public void test(int[] array) { for(int x, array); }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 7: example6
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test(int x) { while (x > 0 { x--; } }
+
+CORRECAO ESPERADA:
+   public void test(int x) { while (x > 0) { x--; } }
+
+CORRECAO DO MODELO:
+   public void test(int x) { while(x); }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 8: example7
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test() { for (int i = 0; i < 10; i+ { System.out.println(i); } }
+
+CORRECAO ESPERADA:
+   public void test() { for (int i = 0; i < 10; i++) { System.out.println(i); } }
+
+CORRECAO DO MODELO:
+   public void test() { for(int i, 0, i); }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 9: example8
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test(int x) { for (int i = 0; i < x; i++) { System.out.println(i); } }
+
+CORRECAO ESPERADA:
+   public void test(int x) { for (int i = 0; i < x; i++) { System.out.println(i); } }
+
+CORRECAO DO MODELO:
+   public void test(int x) { for(int i, 0, x); }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 10: example9
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public void test() { for int i = 0; i < 10; i++) { System.out.println(i); } }
+
+CORRECAO ESPERADA:
+   public void test() { for (int i = 0; i < 10; i++) { System.out.println(i); } }
+
+CORRECAO DO MODELO:
+   public void test() { for(int i = 0; i <= 0; i ++) { java.lang.System.out.println(i); } }
+
+Diferente da esperada
+
+================================================================================
+ESTATISTICAS FINAIS
+================================================================================
+  Total de exemplos: 10
+  Acertos exatos: 2 (20.0%)
+  Diferencas: 8 (80.0%)
+================================================================================
+
+Teste concluido!
+

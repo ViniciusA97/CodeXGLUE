@@ -1,1 +1,1 @@
-public String multiline() { return "This is" " a string" }
+public String test(String s1, String s2, String s3) { return s1 s2 + s3; }

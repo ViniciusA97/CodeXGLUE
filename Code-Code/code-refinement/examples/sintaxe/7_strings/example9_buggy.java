@@ -1,1 +1,1 @@
-public String[] split(String s) { return s.split("\\.") }
+public String test() { return "Hello" + "World }

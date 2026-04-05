@@ -1,0 +1,180 @@
+TESTE SEM TOKENIZACAO/DETOKENIZACAO
+Pasta: sintaxe_7_strings
+Data: 2026-04-05_12-03-36
+Codigo de retorno: 0
+================================================================================
+
+🚀 TESTADOR DE MODELO - CODE REFINEMENT
+================================================================================
+✅ Modelo encontrado: /home/vini/Developer/CodeXGLUE/model.bin
+Preparados 10 exemplos para teste
+
+Executando inferencia...
+Inferencia concluida!
+
+================================================================================
+RESULTADOS DO TESTE
+================================================================================
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 1: example10
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public String test() { return "Part1" + "Part2" + "Part3 }
+
+CORRECAO ESPERADA:
+   public String test() { return "Part1" + "Part2" + "Part3"; }
+
+CORRECAO DO MODELO:
+   public java.lang.String toString ( ) { return "0" ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 2: example1
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public String test(String s1, String s2) { return s1 s2; }
+
+CORRECAO ESPERADA:
+   public String test(String s1, String s2) { return s1 + s2; }
+
+CORRECAO DO MODELO:
+   public java.lang.String toString ( ) { return new java.lang.String ( VAR_1 ) ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 3: example2
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public String test(String a, String b) { return a b; }
+
+CORRECAO ESPERADA:
+   public String test(String a, String b) { return a + b; }
+
+CORRECAO DO MODELO:
+   public java.lang.String toString ( java.lang.String a , java.lang.String b ) { return a ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 4: example3
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public String test() { return "test" }
+
+CORRECAO ESPERADA:
+   public java.lang.String test() { return "test"; }
+
+CORRECAO DO MODELO:
+   public java.lang.String getName ( ) { return "0" ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 5: example4
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public String test(String s1, String s2, String s3) { return s1 s2 + s3; }
+
+CORRECAO ESPERADA:
+   public String test(String s1, String s2, String s3) { return s1 + s2 + s3; }
+
+CORRECAO DO MODELO:
+   public java.lang.String index ( java.lang.String VAR_1 , java.lang.String VAR_2 , java.lang.String VAR_3 ) { return VAR_1 . to2 ( ) ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 6: example5
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public String test() { return "Hello\nWorld" }
+
+CORRECAO ESPERADA:
+   public String test() { return "Hello\nWorld"; }
+
+CORRECAO DO MODELO:
+   public java.lang.String function ( ) { return "0" ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 7: example6
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public String test() { return "tab\tchar" }
+
+CORRECAO ESPERADA:
+   public String test() { return "tab\tchar"; }
+
+CORRECAO DO MODELO:
+   public java.lang.String toString ( ) { return "0" ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 8: example7
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public String test() { return "He said \"Hi\"" }
+
+CORRECAO ESPERADA:
+   public java.lang.String test() { return "He said \"Hi\""; }
+
+CORRECAO DO MODELO:
+   public java.lang.String function ( ) { return "true" ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 9: example8
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public String test() { return 'text'; }
+
+CORRECAO ESPERADA:
+   public String test() { return "text"; }
+
+CORRECAO DO MODELO:
+   public java.lang.String function ( ) { return new java.lang.Text ( ) ; }
+
+Diferente da esperada
+
+────────────────────────────────────────────────────────────────────────────────
+EXEMPLO 10: example9
+────────────────────────────────────────────────────────────────────────────────
+
+CODIGO COM BUG:
+   public String test() { return "Hello" + "World }
+
+CORRECAO ESPERADA:
+   public String test() { return "Hello" + "World"; }
+
+CORRECAO DO MODELO:
+   public java.lang.String function ( ) { return "0" ; }
+
+Diferente da esperada
+
+================================================================================
+ESTATISTICAS FINAIS
+================================================================================
+  Total de exemplos: 10
+  Acertos exatos: 0 (0.0%)
+  Diferencas: 10 (100.0%)
+================================================================================
+
+Teste concluido!
+
+
+✅ Teste concluído!
